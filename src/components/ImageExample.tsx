@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+// Archivo eliminado. Vista Ejemplos de Imágenes ya no es necesaria.
 // Importación de imágenes desde assets (método de importación)
 // Nota: En un proyecto real, estas imágenes deberían existir en las rutas especificadas
 import pastelLogo from '../assets/logos/pasteleria-logo.svg';

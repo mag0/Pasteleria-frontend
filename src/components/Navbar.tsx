@@ -13,7 +13,7 @@ const Navbar = () => {
               <Link to="/" className="font-serif text-2xl font-bold text-primary">
                 {/* Logo de la pastelería */}
                 <img 
-                  src="/src/assets/logos/pasteleria-logo.svg" 
+                  src="/src/assets/logos/logosinfondo.png" 
                   alt="Pastelería Belén" 
                   className="h-12 w-auto"
                 />
@@ -26,17 +26,11 @@ const Navbar = () => {
               <Link to="/productos" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Productos
               </Link>
-              <Link to="/sobre-nosotros" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                Sobre Nosotros
-              </Link>
               <Link to="/galeria" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Galería
               </Link>
               <Link to="/contacto" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Contacto
-              </Link>
-              <Link to="/ejemplos-imagenes" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                Ejemplos Imágenes
               </Link>
             </div>
           </div>

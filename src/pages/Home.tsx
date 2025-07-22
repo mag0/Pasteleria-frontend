@@ -15,25 +15,25 @@ const Home = () => {
     {
       id: '1',
       name: 'Torta de Chocolate',
-      image: '/featured/featured-1.svg', // Imagen SVG creada
+      image: '/featured/torta_estilo_caja_de_bombones.jpg', // Imagen SVG creada
       category: 'tortas'
     },
     {
       id: '2',
-      name: 'Alfajores de Maicena',
-      image: '/featured/featured-1.svg', // Reutilizamos la misma imagen SVG como ejemplo
+      name: 'Alfajores Marplatenses',
+      image: '/featured/alfajores_marplatenses.jpg', // Reutilizamos la misma imagen SVG como ejemplo
       category: 'alfajores'
     },
     {
       id: '3',
-      name: 'Budín de Limón',
-      image: '/featured/featured-1.svg', // Reutilizamos la misma imagen SVG como ejemplo
+      name: 'Pastafrola',
+      image: '/featured/pastafrola_sin_coco_rayado.jpg', // Reutilizamos la misma imagen SVG como ejemplo
       category: 'budines'
     },
     {
       id: '4',
-      name: 'Galletitas Decoradas',
-      image: '/featured/featured-1.svg', // Reutilizamos la misma imagen SVG como ejemplo
+      name: 'Cookies',
+      image: '/featured/cookies.jpg', // Reutilizamos la misma imagen SVG como ejemplo
       category: 'galletitas'
     },
   ];

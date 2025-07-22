@@ -3,10 +3,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
-import About from './pages/About';
+import ProductDetail from './pages/ProductDetail';
+// import About from './pages/About';
 import GalleryPage from './pages/GalleryPage';
 import Contact from './pages/Contact';
-import ImageExample from './components/ImageExample';
+// import ImageExample from './components/ImageExample';
 import './App.css';
 
 function App() {
@@ -18,10 +19,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/productos" element={<Products />} />
-            <Route path="/sobre-nosotros" element={<About />} />
+            <Route path="/productos/:categoria/:id" element={<ProductDetail />} />
+            {/* <Route path="/sobre-nosotros" element={<About />} /> */}
             <Route path="/galeria" element={<GalleryPage />} />
             <Route path="/contacto" element={<Contact />} />
-            <Route path="/ejemplos-imagenes" element={<ImageExample />} />
+            {/* <Route path="/ejemplos-imagenes" element={<ImageExample />} /> */}
           </Routes>
         </main>
         <Footer />

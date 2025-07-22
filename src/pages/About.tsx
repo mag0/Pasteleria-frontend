@@ -1,5 +1,5 @@
 import AboutUs from '../components/AboutUs';
-
+// Archivo eliminado. Vista Sobre Nosotros ya no es necesaria.
 const About = () => {
   return (
     <div className="bg-background py-12">

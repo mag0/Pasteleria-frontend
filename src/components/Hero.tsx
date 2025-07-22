@@ -1,61 +1,39 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-          <svg
-            className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
+    <section className="bg-white">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 px-4">
+    
+    <div>
+      <img 
+        src="/src/assets/logos/logosinfondo.png" 
+        alt="Pastelería Belén - Productos artesanales" 
+        className="w-full h-full object-cover rounded-lg"
+      />
+    </div>
 
-          <div className="relative pt-6 px-4 sm:px-6 lg:px-8"></div>
-
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block font-serif text-primary xl:inline">Pastelería Belén</span>{' '}
-                <span className="block text-accent text-3xl mt-3 font-medium">Dulces momentos, recuerdos inolvidables</span>
-              </h1>
-              <p className="mt-3 text-base text-gray-700 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Elaboramos productos artesanales con ingredientes seleccionados y mucho amor. Cada creación está pensada para endulzar tus momentos especiales y convertirlos en recuerdos inolvidables.
-              </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <Link
-                    to="/productos"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 md:py-4 md:text-lg md:px-10"
-                  >
-                    Ver Productos
-                  </Link>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Link
-                    to="/contacto"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-secondary/30 hover:bg-secondary/50 md:py-4 md:text-lg md:px-10"
-                  >
-                    Hacer un Pedido
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="/hero-image-placeholder.jpg"
-          alt="Pastelería Belén - Productos artesanales"
-        />
+    <div>
+      <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+        <span className="block font-serif text-primary">Pastelería Belén</span>
+        <span className="block text-accent text-3xl mt-3 font-medium">Dulces momentos, recuerdos inolvidables</span>
+      </h1>
+      <p className="mt-4 text-gray-700 text-lg md:text-xl">
+        Elaboramos productos artesanales con ingredientes seleccionados y mucho amor. Cada creación está pensada para endulzar tus momentos especiales y convertirlos en recuerdos inolvidables.
+      </p>
+      <div className="mt-6 flex flex-col sm:flex-row gap-4">
+        <a href="/productos" className="px-8 py-3 rounded-md text-white bg-primary hover:bg-primary/90 text-center">
+          Ver Productos
+        </a>
+        <a href="/contacto" className="px-8 py-3 rounded-md text-primary bg-secondary/30 hover:bg-secondary/50 text-center">
+          Hacer un Pedido
+        </a>
       </div>
     </div>
+
+  </div>
+</section>
+
   );
 };
 
