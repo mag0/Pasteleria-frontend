@@ -10,6 +10,7 @@ interface Product {
   category: string;
   occasion?: string;
   glutenFree?: boolean;
+  ingredients?: string[];
 }
 
 const ProductDetail = () => {
@@ -54,8 +55,7 @@ const ProductDetail = () => {
           <div>
             <h1 className="text-3xl font-bold text-primary mb-2">{product.name}</h1>
             <p className="text-gray-700 mb-4">{product.description}</p>
-            <p className="text-lg font-semibold text-gray-900 mb-2">${product.price}</p>
-            <p className="text-sm text-gray-600 mb-2">Categoría: {product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+            
             {product.occasion && (
               <p className="text-sm text-gray-600 mb-2">Ocasión: {product.occasion.charAt(0).toUpperCase() + product.occasion.slice(1)}</p>
             )}
@@ -63,6 +63,16 @@ const ProductDetail = () => {
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Sin TACC</span>
             )}
           </div>
+          {product.ingredients && product.ingredients.length > 0 && (
+            <div className="mt-4">
+              <h3 className="text-lg font-semibold text-primary mb-2">Ingredientes</h3>
+              <ul className="list-disc list-inside text-gray-700">
+                {product.ingredients.map((ing, idx) => (
+                  <li key={idx}>{ing}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -127,7 +127,7 @@ const Products = () => {
             </div>
           </div>
           
-          {/* Filtro Sin TACC */}
+          {/* Filtro Sin TACC
           <div className="mt-4 flex items-center">
             <input
               type="checkbox"
@@ -139,7 +139,7 @@ const Products = () => {
             <label htmlFor="glutenFree" className="ml-2 block text-sm text-gray-700">
               Mostrar solo productos Sin TACC
             </label>
-          </div>
+          </div> */}
         </div>
         
         {/* Lista de productos */}

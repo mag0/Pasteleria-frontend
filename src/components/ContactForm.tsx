@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { type FormEvent, type ChangeEvent } from 'react';
 
 interface FormData {
@@ -23,6 +23,10 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -124,41 +128,6 @@ const ContactForm = () => {
               />
             </div>
             
-            <div>
-              <label htmlFor="productType" className="block text-sm font-medium text-gray-700 mb-1">
-                Tipo de producto *
-              </label>
-              <select
-                id="productType"
-                name="productType"
-                value={formData.productType}
-                onChange={handleChange}
-                required
-                className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="torta">Torta</option>
-                <option value="budin">Budín</option>
-                <option value="galletitas">Galletitas</option>
-                <option value="alfajores">Alfajores</option>
-                <option value="sinTACC">Productos sin TACC</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-          </div>
-          
-          <div>
-            <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
-              Fecha deseada de entrega
-            </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-                className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
           </div>
           
           <div>
