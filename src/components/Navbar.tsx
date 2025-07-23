@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="font-serif text-2xl font-bold text-primary">
               <img 
-                src="/public/logos/logosinfondo.png"
+                src="/logos/logosinfondo.png"
                 alt="Pastelería Belén" 
                 className="h-12 w-auto"
               />

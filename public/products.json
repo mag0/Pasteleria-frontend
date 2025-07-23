@@ -139,7 +139,25 @@
     "description": "Clásicas tortitas negras de panadería.",
     "price": 1200,
     "image": "/products/tortitasNegras2.png",
-    "category": "panes",
+    "category": "facturas",
+    "glutenFree": false
+  },
+  {
+    "id": "16",
+    "name": "Pastafrola con Coco Rayado",
+    "description": "Pastafrola con dulce de batata y coco rayado.",
+    "price": 1300,
+    "image": "/products/pastafrola_con_coco_rayado.jpg",
+    "category": "tartas",
+    "glutenFree": false
+  },
+  {
+    "id": "17",
+    "name": "Pastafrola sin Coco Rayado",
+    "description": "Pastafrola con dulce de batata y sin coco rayado.",
+    "price": 4500,
+    "image": "/products/pastafrola_sin_coco_rayado.jpg",
+    "category": "tartas",
     "glutenFree": false
   }
 ]

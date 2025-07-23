@@ -7,7 +7,7 @@ const Hero = () => {
     
     <div>
       <img 
-        src="/public/logos/logosinfondo.png" 
+        src="/logos/logosinfondo.png" 
         alt="Pastelería Belén - Productos artesanales" 
         className="w-full h-full object-cover rounded-lg"
       />
