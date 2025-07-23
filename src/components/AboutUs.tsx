@@ -18,7 +18,7 @@ const AboutUs = () => {
     {/* Imagen a la izquierda */}
     <div className="order-1 lg:order-none">
       <img 
-        src="/public/logos/perfil.png"
+        src="/logos/perfil.png"
         alt="Pastelería Belén trabajando en repostería artesanal"
         className="rounded-2xl shadow-lg w-full h-auto object-cover"
       />
