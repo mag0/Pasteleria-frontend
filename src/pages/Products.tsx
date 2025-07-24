@@ -1,17 +1,7 @@
 import { useState, useEffect } from 'react';
 import { categories } from '../data/categories';
 import ProductCard from '../components/ProductCard';
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  occasion?: string;
-  glutenFree: boolean;
-}
+import type { Product } from '../interfaces/Product';
 
 const Products = () => {
   // Estado para los productos

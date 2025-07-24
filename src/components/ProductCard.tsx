@@ -10,57 +10,33 @@ interface ProductCardProps {
   glutenFree?: boolean;
 }
 
-const ProductCard = ({ id, name, description, price, image, category, glutenFree = false }: ProductCardProps) => {
-  return (
-    <Link
-      to={`/productos/${category}/${id}`}
-      className="group block relative bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg"
-    >
-      <div className="w-full h-64 bg-gray-200 overflow-hidden">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-300"
-          onError={(e) => {
-            // Fallback a una imagen por defecto si la imagen no se puede cargar
-            const target = e.target as HTMLImageElement;
-            target.src = '/products/product-1.svg';
-          }}
-        />
-      </div>
-      <div className="p-4">
-        <div className="flex justify-between items-start">
-          <h3 className="text-lg font-serif font-semibold text-primary">{name}</h3>
-          <span className="bg-secondary/20 text-primary px-2 py-1 rounded-full text-xs font-medium">
-            ${price.toFixed(2)}
-          </span>
-        </div>
-        <div className="mt-2 flex items-center space-x-2">
-          <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs">
-            {category}
-          </span>
-          {glutenFree && (
-            <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs">
-              Sin TACC
-            </span>
-          )}
-        </div>
-        <p className="mt-2 text-sm text-gray-600 line-clamp-3">{description}</p>
-        <div className="mt-4 flex justify-between items-center">
-          <span className="text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
-            Ver detalles
-          </span>
-          <button
-            type="button"
-            className="bg-primary text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
-            onClick={e => { e.preventDefault(); /* Aquí podrías agregar lógica para agregar al carrito */ }}
-          >
-            Agregar
-          </button>
-        </div>
-      </div>
-    </Link>
-  );
-};
+const ProductCard = ({ id, name, description, price, image, category, glutenFree = false }: ProductCardProps) => (
+  <div className="bg-white rounded-lg shadow-md p-4 flex flex-col h-full">
+    <img
+      src={image}
+      alt={name}
+      className="w-full h-48 object-cover rounded-lg mb-4"
+      onError={(e) => {
+        // Fallback a una imagen por defecto si la imagen no se puede cargar
+        const target = e.target as HTMLImageElement;
+        target.src = '/products/product-1.svg';
+      }}
+    />
+    <h3 className="text-lg font-bold text-primary mb-2">{name}</h3>
+    <p className="text-gray-700 mb-2">{description}</p>
+    <p className="text-primary font-semibold mb-2">${price}</p>
+    {glutenFree && (
+      <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mb-2">Sin TACC</span>
+    )}
+    <div className="mt-auto flex justify-end">
+      <Link
+        to={`/productos/${category}/${id}`}
+        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90"
+      >
+        Ver detalle
+      </Link>
+    </div>
+  </div>
+);
 
 export default ProductCard;

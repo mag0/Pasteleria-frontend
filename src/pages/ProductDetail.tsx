@@ -1,23 +1,13 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  occasion?: string;
-  glutenFree?: boolean;
-  ingredients?: string[];
-}
+import type { Product } from '../interfaces/Product';
 
 const ProductDetail = () => {
   const { categoria, id } = useParams<{ categoria: string; id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('/products.json')
@@ -44,7 +34,12 @@ const ProductDetail = () => {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4">
-      <Link to="/productos" className="text-primary hover:underline mb-4 inline-block">← Volver a productos</Link>
+      <button
+        onClick={() => navigate(-1)}
+        className="text-primary hover:underline mb-4 inline-block bg-transparent border-none cursor-pointer focus:outline-none focus:ring-0"
+      >
+        ← Volver
+      </button>
       <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
         <img
           src={product.image}
