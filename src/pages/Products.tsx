@@ -25,29 +25,25 @@ const Products = () => {
         setLoading(false);
       });
   }, []);
-
-  // Categorías y ocasiones para filtrar
-  const occasions = ['todas', 'cumpleaños', 'aniversario', 'eventos'];
   
   // Estados para los filtros
   const [activeCategory, setActiveCategory] = useState('todas');
-  const [activeOccasion, setActiveOccasion] = useState('todas');
-  const [showGlutenFree, setShowGlutenFree] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  // Elimina el filtro por ocasión y agrega el filtro por precio
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
 
   // Filtrar productos según los criterios seleccionados
   const filteredProducts = productsData.filter(product => {
-    // Filtro por categoría
     const categoryMatch = activeCategory === 'todas' || product.category === activeCategory;
-    // Filtro por ocasión
-    const occasionMatch = activeOccasion === 'todas' || product.occasion === activeOccasion;
-    // Filtro por sin TACC
-    const glutenFreeMatch = !showGlutenFree || product.glutenFree;
-    // Filtro por término de búsqueda
-    const searchMatch = searchTerm === '' || 
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      product.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return categoryMatch && occasionMatch && glutenFreeMatch && searchMatch;
+    // Filtro por precio
+    const priceMatch =
+      (minPrice === '' || product.price >= Number(minPrice)) &&
+      (maxPrice === '' || product.price <= Number(maxPrice));
+    // El buscador solo busca por nombre
+    const searchMatch = searchTerm === '' ||
+      product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return categoryMatch && priceMatch && searchMatch;
   });
 
   return (
@@ -97,39 +93,31 @@ const Products = () => {
               </select>
             </div>
             
-            {/* Filtro por ocasión */}
+            {/* Filtro por precio */}
             <div>
-              <label htmlFor="occasion" className="block text-sm font-medium text-gray-700 mb-1">
-                Ocasión
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Precio
               </label>
-              <select
-                id="occasion"
-                value={activeOccasion}
-                onChange={(e) => setActiveOccasion(e.target.value)}
-                className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
-                {occasions.map(occasion => (
-                  <option key={occasion} value={occasion}>
-                    {occasion.charAt(0).toUpperCase() + occasion.slice(1)}
-                  </option>
-                ))}
-              </select>
+              <div className="flex gap-2">
+                <input
+                  type="number"
+                  min="0"
+                  placeholder="Mínimo"
+                  value={minPrice}
+                  onChange={e => setMinPrice(e.target.value)}
+                  className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+                <input
+                  type="number"
+                  min="0"
+                  placeholder="Máximo"
+                  value={maxPrice}
+                  onChange={e => setMaxPrice(e.target.value)}
+                  className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+              </div>
             </div>
           </div>
-          
-          {/* Filtro Sin TACC
-          <div className="mt-4 flex items-center">
-            <input
-              type="checkbox"
-              id="glutenFree"
-              checked={showGlutenFree}
-              onChange={() => setShowGlutenFree(!showGlutenFree)}
-              className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
-            />
-            <label htmlFor="glutenFree" className="ml-2 block text-sm text-gray-700">
-              Mostrar solo productos Sin TACC
-            </label>
-          </div> */}
         </div>
         
         {/* Lista de productos */}
@@ -146,7 +134,7 @@ const Products = () => {
                 name={product.name}
                 description={product.description}
                 price={product.price}
-                image={product.image}
+                images={product.images} // <-- pasa el array de imágenes
                 category={product.category}
                 glutenFree={product.glutenFree}
               />
@@ -163,8 +151,6 @@ const Products = () => {
               <button 
                 onClick={() => {
                   setActiveCategory('todas');
-                  setActiveOccasion('todas');
-                  setShowGlutenFree(false);
                   setSearchTerm('');
                 }}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90"

@@ -7,9 +7,8 @@ const Hero = () => {
         {/* Imagen de producto */}
         <div>
           <img 
-            src="/products/torta_estilo_caja_de_bombones.jpg"
-            alt="Torta artesanal de Pastelería Belu" 
-            className="w-full h-96 rounded-2xl shadow-lg object-cover"
+            src="/logos/logo2-sinfondo.png"
+            alt="Torta artesanal de Pastelería Belu"             
           />
         </div>
 
@@ -21,7 +20,7 @@ const Hero = () => {
           <p className="mt-4 text-gray-700 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
             Tortas, cupcakes y mesas dulces elaboradas artesanalmente con ingredientes seleccionados y mucho amor, para endulzar tus momentos especiales.
           </p>
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex justify-end lg:justify-end justify-center">
             <Link
               to="/productos"
               className="px-8 py-3 rounded-md text-white bg-primary transition-all duration-300 shadow hover:scale-105 hover:bg-pink-700 hover:text-white focus:outline-none inline-flex items-center gap-2"
