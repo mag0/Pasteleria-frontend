@@ -22,9 +22,9 @@ const ProductCard = ({ id, name, description, images, category }: Product) => {
         <img
           src={images[currentImg]}
           alt={name}
-          className={`w-full h-56 object-cover rounded-lg mb-4 transition-transform duration-300 cursor-zoom-in ${zoomed ? 'scale-150' : ''}`}
+          className={`w-full h-full rounded-lg mb-4 transition-transform duration-300 cursor-zoom-in ${zoomed ? 'scale-150' : ''}`}
           onClick={() => setZoomed(!zoomed)}
-          style={{ cursor: zoomed ? 'zoom-out' : 'zoom-in' }}
+          style={{ cursor: zoomed ? 'zoom-out' : 'zoom-in'}}
         />
         {/* Flechas solo si hay más de una imagen y no está zoomed */}
         {images.length > 1 && !zoomed && (
