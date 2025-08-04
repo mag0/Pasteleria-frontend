@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 px-4 py-12">
         {/* Imagen de producto */}
-        <div>
+        <div className="flex justify-center lg:justify-start">
           <img 
             src="/logos/logosinfondo.png"
             alt="Torta artesanal de Pastelería Belu"             

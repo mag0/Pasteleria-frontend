@@ -2,7 +2,7 @@ const AboutUs = () => {
   return (
     <section className="py-12 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center mb-12">
+        <div className="text-center mb-12">
           <p className="mt-2 text-3xl leading-8 font-serif font-bold text-primary sm:text-4xl">
             ¿Quien soy?
           </p>
