@@ -4,10 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
-// import About from './pages/About';
-import GalleryPage from './pages/GalleryPage';
 import Contact from './pages/Contact';
-// import ImageExample from './components/ImageExample';
 import './App.css';
 
 function App() {
