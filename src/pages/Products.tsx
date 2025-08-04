@@ -29,21 +29,14 @@ const Products = () => {
   // Estados para los filtros
   const [activeCategory, setActiveCategory] = useState('todas');
   const [searchTerm, setSearchTerm] = useState('');
-  // Elimina el filtro por ocasión y agrega el filtro por precio
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
 
   // Filtrar productos según los criterios seleccionados
   const filteredProducts = productsData.filter(product => {
     const categoryMatch = activeCategory === 'todas' || product.category === activeCategory;
-    // Filtro por precio
-    const priceMatch =
-      (minPrice === '' || product.price >= Number(minPrice)) &&
-      (maxPrice === '' || product.price <= Number(maxPrice));
     // El buscador solo busca por nombre
     const searchMatch = searchTerm === '' ||
       product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    return categoryMatch && priceMatch && searchMatch;
+    return categoryMatch && searchMatch;
   });
 
   return (
