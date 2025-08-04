@@ -7,7 +7,7 @@ const Hero = () => {
         {/* Imagen de producto */}
         <div>
           <img 
-            src="/logos/logo2-sinfondo.png"
+            src="/logos/logosinfondo.png"
             alt="Torta artesanal de Pastelería Belu"             
           />
         </div>

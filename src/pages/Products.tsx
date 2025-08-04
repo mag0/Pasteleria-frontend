@@ -11,7 +11,7 @@ const Products = () => {
 
   // Cargar productos desde el JSON
   useEffect(() => {
-    fetch('/products.json')
+    fetch('/json/products.json')
       .then((res) => {
         if (!res.ok) throw new Error('No se pudo cargar el archivo de productos');
         return res.json();
@@ -58,7 +58,7 @@ const Products = () => {
         
         {/* Filtros */}
         <div className="mb-8 bg-white p-6 rounded-lg shadow-md">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Búsqueda */}
             <div>
               <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
@@ -92,31 +92,7 @@ const Products = () => {
                 ))}
               </select>
             </div>
-            
-            {/* Filtro por precio */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Precio
-              </label>
-              <div className="flex gap-2">
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Mínimo"
-                  value={minPrice}
-                  onChange={e => setMinPrice(e.target.value)}
-                  className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Máximo"
-                  value={maxPrice}
-                  onChange={e => setMaxPrice(e.target.value)}
-                  className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-              </div>
-            </div>
+
           </div>
         </div>
         
@@ -133,10 +109,8 @@ const Products = () => {
                 id={product.id}
                 name={product.name}
                 description={product.description}
-                price={product.price}
-                images={product.images} // <-- pasa el array de imágenes
+                images={product.images}
                 category={product.category}
-                glutenFree={product.glutenFree}
               />
             ))}
           </div>

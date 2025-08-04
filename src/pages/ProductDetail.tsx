@@ -10,7 +10,7 @@ const ProductDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/products.json')
+    fetch('/json/products.json')
       .then((res) => {
         if (!res.ok) throw new Error('No se pudo cargar el archivo de productos');
         return res.json();
@@ -45,7 +45,7 @@ const ProductDetail = () => {
       </button>
       <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
         <img
-          src={product.image}
+          src={product.images[0]}
           alt={product.name}
           className="w-full md:w-1/2 h-80 object-cover rounded-lg"
         />
@@ -53,14 +53,6 @@ const ProductDetail = () => {
           <div>
             <h1 className="text-3xl font-bold text-primary mb-2">{product.name}</h1>
             <p className="text-gray-700 mb-4">{product.description}</p>
-            {product.occasion && (
-              <p className="text-sm text-gray-600 mb-2">
-                Ocasión: {product.occasion.charAt(0).toUpperCase() + product.occasion.slice(1)}
-              </p>
-            )}
-            {product.glutenFree && (
-              <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Sin TACC</span>
-            )}
             {product.ingredients && product.ingredients.length > 0 && (
               <div className="mt-4">
                 <h3 className="text-lg font-semibold text-primary mb-2">Ingredientes</h3>
@@ -72,8 +64,6 @@ const ProductDetail = () => {
               </div>
             )}
           </div>
-          {/* Precio debajo de toda la info, mismo color que el nombre */}
-          <p className="text-2xl font-bold text-primary mt-6">${product.price}</p>
         </div>
       </div>
     </div>

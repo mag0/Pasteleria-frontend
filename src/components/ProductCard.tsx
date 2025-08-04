@@ -1,17 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import type { Product } from '../interfaces/Product';
 
-interface ProductCardProps {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  category: string;
-  glutenFree?: boolean;
-}
-
-const ProductCard = ({ id, name, description, price, images, category, glutenFree = false }: ProductCardProps) => {
+const ProductCard = ({ id, name, description, images, category }: Product) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [zoomed, setZoomed] = useState(false);
 
@@ -31,7 +22,7 @@ const ProductCard = ({ id, name, description, price, images, category, glutenFre
         <img
           src={images[currentImg]}
           alt={name}
-          className={`w-full h-48 object-cover rounded-lg mb-4 transition-transform duration-300 cursor-zoom-in ${zoomed ? 'scale-150' : ''}`}
+          className={`w-full h-56 object-cover rounded-lg mb-4 transition-transform duration-300 cursor-zoom-in ${zoomed ? 'scale-150' : ''}`}
           onClick={() => setZoomed(!zoomed)}
           style={{ cursor: zoomed ? 'zoom-out' : 'zoom-in' }}
         />
@@ -61,10 +52,6 @@ const ProductCard = ({ id, name, description, price, images, category, glutenFre
       </div>
       <h3 className="text-lg font-bold text-primary mb-2">{name}</h3>
       <p className="text-gray-700 mb-2">{description}</p>
-      <p className="text-primary font-semibold mb-2">${price}</p>
-      {glutenFree && (
-        <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mb-2">Sin TACC</span>
-      )}
       <div className="mt-auto flex justify-end">
         <Link
           to={`/productos/${category}/${id}`}

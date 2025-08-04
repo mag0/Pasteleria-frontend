@@ -9,7 +9,7 @@ const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState<FeaturedProduct[]>([]);
 
   useEffect(() => {
-    fetch('/featuredProducts.json')
+    fetch('/json/featuredProducts.json')
       .then(res => res.json())
       .then(data => setFeaturedProducts(data));
   }, []);
