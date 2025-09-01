@@ -6,14 +6,7 @@
     "images": [
       "/products/budines/budinDeAvellanas.jpg"
     ],
-    "category": "budines",
-    "ingredients": [
-      "Harina de trigo",
-      "Azúcar",
-      "Manteca",
-      "Huevos",
-      "Chips de chocolate"
-    ]
+    "category": "budines"
   },
   {
     "id": "2",
@@ -22,14 +15,7 @@
     "images": [
       "/products/budines/budinDeChocolate.jpg"
     ],
-    "category": "budines",
-    "ingredients": [
-      "Harina de trigo",
-      "Azúcar",
-      "Manteca",
-      "Huevos",
-      "Chips de chocolate"
-    ]
+    "category": "budines"
   },
   {
     "id": "3",
@@ -38,15 +24,7 @@
     "images": [
       "/products/budines/budinDeCocoYChocolate.jpg"
     ],
-    "category": "budines",
-    "ingredients": [
-      "Harina de trigo",
-      "Azúcar",
-      "Manteca",
-      "Huevos",
-      "Chips de chocolate",
-      "Coco rallado"
-    ]
+    "category": "budines"
   },
   {
     "id": "4",
@@ -55,14 +33,7 @@
     "images": [
       "/products/budines/budinDeLimon.jpg"
     ],
-    "category": "budines",
-    "ingredients": [
-      "Harina",
-      "Claras de huevo",
-      "Azúcar",
-      "Esencia de vainilla",
-      "Polvo para hornear"
-    ]
+    "category": "budines"
   },
   {
     "id": "5",
@@ -71,14 +42,25 @@
     "images": [
       "/products/budines/budinDeLimonBañado.jpg"
     ],
-    "category": "budines",
-    "ingredients": [
-      "Harina",
-      "Claras de huevo",
-      "Azúcar",
-      "Esencia de vainilla",
-      "Polvo para hornear"
-    ]
+    "category": "budines"
+  },
+  {
+    "id": "6",
+    "name": "Macitas Secas",
+    "description": "Macitas secas con un toque de limón.",
+    "images": [
+      "/products/masitas/masitasSecas.jpg",
+      "/products/masitas/masitasSecas2.jpg"
+    ],
+    "category": "masitas"
+  },
+  {
+    "id": "7",
+    "name": "Mini pastafrola de batata",
+    "description": "Mini pastafrola de batata con un toque de canela.",
+    "images": [
+      "/products/miniPastafrolaDeBatata.jpg"
+    ],
+    "category": "pastafrola"
   }
-  
 ]
