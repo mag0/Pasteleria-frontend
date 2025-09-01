@@ -6,6 +6,7 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Contact from './pages/Contact';
 import './App.css';
+import ProductForm from './pages/ProductFormData';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/productos" element={<Products />} />
             <Route path="/productos/:categoria/:id" element={<ProductDetail />} />
             <Route path="/contacto" element={<Contact />} />
+            <Route path="/formulario" element={<ProductForm />} />
           </Routes>
         </main>
         <Footer />

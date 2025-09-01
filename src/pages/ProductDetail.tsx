@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { getProductById } from '../api/PasteleriaApi';
 import type { Product } from '../interfaces/Product';
 
 const ProductDetail = () => {
@@ -10,16 +11,16 @@ const ProductDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/json/products.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('No se pudo cargar el archivo de productos');
-        return res.json();
-      })
-      .then((data: Product[]) => {
-        const found = data.find(
-          (p) => p.id === id && p.category === categoria
-        );
-        setProduct(found || null);
+    if (!id) return;
+
+    getProductById(id)
+      .then((data) => {
+        if (data?.category !== categoria) {
+          setError('La categoría no coincide con el producto');
+          setProduct(null);
+        } else {
+          setProduct(data);
+        }
         setLoading(false);
       })
       .catch((err) => {
@@ -45,7 +46,7 @@ const ProductDetail = () => {
       </button>
       <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
         <img
-          src={product.images[0]}
+          src={product.image}
           alt={product.name}
           className="w-full md:w-1/2 h-80 object-cover rounded-lg"
         />
@@ -53,16 +54,8 @@ const ProductDetail = () => {
           <div>
             <h1 className="text-3xl font-bold text-primary mb-2">{product.name}</h1>
             <p className="text-gray-700 mb-4">{product.description}</p>
-            {product.ingredients && product.ingredients.length > 0 && (
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold text-primary mb-2">Ingredientes</h3>
-                <ul className="list-disc list-inside text-gray-700">
-                  {product.ingredients.map((ing, idx) => (
-                    <li key={idx}>{ing}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <p className="text-sm text-pink-500 font-medium">Categoría: {product.category}</p>
+            <p className="text-lg font-semibold mt-2">Precio: ${product.price}</p>
           </div>
         </div>
       </div>
