@@ -46,7 +46,7 @@ const ProductDetail = () => {
       </button>
       <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
         <img
-          src={product.image}
+          src={`${import.meta.env.VITE_API_URL}${product.image}`}
           alt={product.name}
           className="w-full md:w-1/2 h-80 object-cover rounded-lg"
         />

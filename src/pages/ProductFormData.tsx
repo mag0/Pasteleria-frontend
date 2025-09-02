@@ -77,7 +77,7 @@ const ProductForm: React.FC = () => {
 
 
     return (
-        <form onSubmit={handleSubmit} className="mt-10 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg space-y-4">
+        <form onSubmit={handleSubmit} className="mt-10 mb-10 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg space-y-4">
             <h2 className="text-2xl font-bold text-pink-600 text-center">Subir nuevo producto 🍰</h2>
 
             <input
@@ -87,7 +87,7 @@ const ProductForm: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="w-full bg-white px-4 py-2 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
             />
 
             <input
@@ -97,7 +97,7 @@ const ProductForm: React.FC = () => {
                 value={formData.price}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="w-full px-4 py-2 bg-white border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
             />
 
             <textarea
@@ -106,7 +106,7 @@ const ProductForm: React.FC = () => {
                 value={formData.description}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-pink-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="w-full px-4 py-2 bg-white border border-pink-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-pink-400"
             />
 
             <select

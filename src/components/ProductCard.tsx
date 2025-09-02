@@ -16,7 +16,7 @@ const ProductCard = ({ _id, name, description, image, category }: Product) => {
       )}
       <div className="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4">
         <img
-          src={image}
+          src={`${import.meta.env.VITE_API_URL}${image}`}
           alt={name}
           className={`w-full h-full object-cover transition-transform duration-300 cursor-zoom-in ${zoomed ? 'scale-150' : ''}`}
           onClick={() => setZoomed(!zoomed)}
