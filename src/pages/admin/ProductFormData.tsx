@@ -3,7 +3,6 @@ import { createProduct } from '../../api/PasteleriaApi';
 import { isAxiosError } from 'axios';
 import { categories } from '../../data/categories';
 import { useNavigate } from 'react-router-dom';
-import { getProducts } from '../../api/PasteleriaApi';
 
 interface ProductFormData {
     name: string;

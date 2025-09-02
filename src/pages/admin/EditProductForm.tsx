@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductById, updateProduct } from "../../api/PasteleriaApi";
 import { categories } from "../../data/categories";
-import { getProducts } from "../../api/PasteleriaApi";
 import { isAxiosError } from "axios";
 
 export const EditProductForm = () => {
