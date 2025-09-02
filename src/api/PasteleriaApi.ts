@@ -18,7 +18,7 @@ export async function createProduct(formData: FormData): Promise<Product> {
     try {
         const { data } = await api.post<Product>("/products", formData, {
             headers: {
-                // ⚠️ No pongas Content-Type manualmente, Axios lo maneja
+
             },
         });
         return data;

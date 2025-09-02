@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductById, updateProduct } from "../../api/PasteleriaApi";
 import { categories } from "../../data/categories";
-import { isAxiosError } from "axios";
 
 export const EditProductForm = () => {
     const { id } = useParams();
@@ -31,7 +30,7 @@ export const EditProductForm = () => {
                     description: product.description,
                     category: product.category,
                     imageFile: null,
-                    imagePreview: `${import.meta.env.VITE_API_URL}${product.image}`,
+                    imagePreview: product.imageUrl,
                 });
             })
             .catch(console.error)
@@ -71,25 +70,9 @@ export const EditProductForm = () => {
             await updateProduct(id, data);
             setMessage("Producto actualizado con éxito 🎉");
             setTimeout(() => navigate("/admin/tablaProductos"), 1500);
-        } catch (error: unknown) {
-            if (isAxiosError(error) && error.response) {
-                const backendMessage = error.response.data.message;
-
-                if (backendMessage?.includes("producto con ese nombre")) {
-                    setMessage("Ya existe otro producto con ese nombre. Elegí uno distinto.");
-                    return;
-                }
-
-                if (backendMessage?.includes("producto con esa imagen")) {
-                    setMessage("Ya existe otro producto con esa imagen. Subí una distinta.");
-                    return;
-                }
-
-                setMessage(backendMessage || "Error al actualizar el producto.");
-                return;
-            }
-
-            setMessage("Error inesperado al actualizar el producto.");
+        } catch (error) {
+            console.error("Error al actualizar:", error);
+            setMessage("Ya existe otro producto con ese nombre. Elegí uno distinto.");
         }
     };
 

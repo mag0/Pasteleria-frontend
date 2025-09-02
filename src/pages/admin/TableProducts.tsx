@@ -45,14 +45,6 @@ export const TableProducts = () => {
                                 + Crear producto
                             </button>
                         </div>
-
-                        {loading ? (
-                            <p className="text-center text-gray-500">Cargando productos...</p>
-                        ) : (
-                            <div className="overflow-x-auto">
-                                {/* tabla acá */}
-                            </div>
-                        )}
                     </div>
                     <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                         <thead className="bg-gray-100">
@@ -70,7 +62,8 @@ export const TableProducts = () => {
                                 <tr key={product._id} className="border-t border-gray-200 hover:bg-gray-50">
                                     <td className="px-4 py-3">
                                         <img
-                                            src={`${import.meta.env.VITE_API_URL}${product.image}`}
+                                            src={product.imageUrl}
+
                                             alt={product.name}
                                             className="w-14 h-14 object-cover rounded-md"
                                         />
