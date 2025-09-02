@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProductById } from '../api/PasteleriaApi';
-import type { Product } from '../interfaces/Product';
+import { getProductById } from '../../api/PasteleriaApi';
+import type { Product } from '../../interfaces/Product';
 
 const ProductDetail = () => {
   const { categoria, id } = useParams<{ categoria: string; id: string }>();

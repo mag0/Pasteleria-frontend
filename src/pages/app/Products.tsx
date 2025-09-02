@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
-import { categories } from '../data/categories';
-import ProductCard from '../components/ProductCard';
-import { getProducts } from '../api/PasteleriaApi';
-import type { Product } from '../interfaces/Product';
+import { categories } from '../../data/categories';
+import ProductCard from '../../components/ProductCard';
+import { getProducts } from '../../api/PasteleriaApi';
+import type { Product } from '../../interfaces/Product';
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('todas');

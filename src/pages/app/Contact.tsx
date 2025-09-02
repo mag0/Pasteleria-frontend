@@ -1,4 +1,4 @@
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../../components/ContactForm';
 
 const Contact = () => {
   return (
@@ -10,7 +10,7 @@ const Contact = () => {
             ¿Tienes alguna pregunta o quieres hacer un pedido? ¡Estamos aquí para ayudarte!
           </p>
         </div>
-        
+
         <div className="max-w-lg mx-auto">
           <div className="bg-white rounded-lg shadow-md p-8">
             <ContactForm />

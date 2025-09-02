@@ -41,3 +41,26 @@ export async function getProductById(id: string): Promise<Product | null> {
         throw new Error("Error inesperado al obtener producto");
     }
 }
+
+export async function deleteProduct(id: string): Promise<void> {
+    try {
+        await api.delete(`/products/${id}`);
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.message || "Error al eliminar producto");
+        }
+        throw new Error("Error inesperado al eliminar producto");
+    }
+}
+
+export async function updateProduct(id: string, formData: FormData): Promise<Product> {
+    try {
+        const { data } = await api.put<Product>(`/products/${id}`, formData);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.message || "Error al actualizar producto");
+        }
+        throw new Error("Error inesperado al actualizar producto");
+    }
+}

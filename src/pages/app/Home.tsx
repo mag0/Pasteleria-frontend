@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Hero from '../components/Hero';
-import AboutUs from '../components/AboutUs';
+import Hero from '../../components/Hero';
+import AboutUs from '../../components/AboutUs';
 import { Link } from 'react-router-dom';
-import Testimonials from '../components/Testimonials';
-import type { FeaturedProduct } from '../interfaces/FeaturedProduct';
+import Testimonials from '../../components/Testimonials';
+import type { FeaturedProduct } from '../../interfaces/FeaturedProduct';
 
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState<FeaturedProduct[]>([]);
@@ -18,7 +18,7 @@ const Home = () => {
     <div className="bg-background">
       {/* Hero Section */}
       <Hero />
-      
+
       {/* Productos Destacados */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,18 +28,18 @@ const Home = () => {
               Descubre algunas de nuestras creaciones más populares, elaboradas con ingredientes seleccionados y mucho amor.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
-              <Link 
-                key={product.id} 
+              <Link
+                key={product.id}
                 to={`/productos/${product.category}/${product.id}`}
                 className="group"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
+                  <img
+                    src={product.image}
+                    alt={product.name}
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80 group-hover:opacity-100 transition-opacity">
@@ -52,9 +52,9 @@ const Home = () => {
               </Link>
             ))}
           </div>
-          
+
           <div className="mt-10 text-center">
-            <Link 
+            <Link
               to="/productos"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 transition-colors"
             >
@@ -66,13 +66,13 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Sobre Nosotros */}
       <AboutUs />
-      
+
       {/* Testimonios */}
       <Testimonials />
-      
+
       {/* CTA - Contacto */}
       <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -81,7 +81,7 @@ const Home = () => {
             Haz tu pedido ahora y disfruta de nuestras deliciosas creaciones artesanales.
           </p>
           <div className="mt-8">
-            <Link 
+            <Link
               to="/contacto"
               className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-primary bg-white hover:bg-gray-100 transition-colors"
             >
