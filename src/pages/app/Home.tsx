@@ -20,7 +20,7 @@ const Home = () => {
       <Hero />
 
       {/* Productos Destacados */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-primary">Nuestros Productos Destacados</h2>
@@ -65,7 +65,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Sobre Nosotros */}
       <AboutUs />
@@ -74,7 +74,7 @@ const Home = () => {
       <Testimonials />
 
       {/* CTA - Contacto */}
-      <section className="py-16 bg-primary">
+      {/* <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-serif font-bold text-white">¿Listo para endulzar tu día?</h2>
           <p className="mt-4 text-lg text-white/90 max-w-3xl mx-auto">
@@ -89,7 +89,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

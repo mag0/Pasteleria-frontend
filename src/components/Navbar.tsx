@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center h-16">
-          
+
           {/* Navegación a la derecha */}
           <div className="hidden sm:flex sm:space-x-8">
             <Link to="/" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
@@ -17,12 +17,9 @@ const Navbar = () => {
             <Link to="/productos" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Productos
             </Link>
-            {/* <Link to="/galeria" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Galería
-            </Link> */}
-            <Link to="/contacto" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            {/* <Link to="/contacto" className="border-transparent text-gray-700 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Contacto
-            </Link>
+            </Link> */}
           </div>
           {/* Menú móvil */}
           <div className="sm:hidden flex items-center">
@@ -76,15 +73,9 @@ const Navbar = () => {
           <Link to="/productos" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
             Productos
           </Link>
-          {/* <Link to="/nosotros" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
-            Sobre Nosotros
-          </Link>
-          <Link to="/galeria" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
-            Galería
-          </Link> */}
-          <Link to="/contacto" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
+          {/* <Link to="/contacto" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
             Contacto
-          </Link>
+          </Link> */}
         </div>
       </div>
     </nav>
