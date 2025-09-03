@@ -64,3 +64,11 @@ export async function updateProduct(id: string, formData: FormData): Promise<Pro
         throw new Error("Error inesperado al actualizar producto");
     }
 }
+
+export async function ping(): Promise<void> {
+    try {
+        await api.get("/ping");
+    } catch {
+        // No hace falta manejar el error, es solo para despertar el backend
+    }
+}
