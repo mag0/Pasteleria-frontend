@@ -5,6 +5,7 @@ import { categories } from '../../data/categories';
 import ProductCard from '../../components/ProductCard';
 import { getProducts } from '../../api/PasteleriaApi';
 import type { Product } from '../../interfaces/Product';
+import PinkSpinner from '../../components/PinkSpinner';
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('todas');
@@ -94,19 +95,20 @@ const Products = () => {
 
         {/* Lista de productos */}
         {loading ? (
-          <div className="text-center py-12 text-pink-500">
-            Cargando productos...
-          </div>
+          <PinkSpinner />
         ) : isError ? (
           <div className="text-center py-12 text-red-600">
-            Error al cargar productos
+            No se pudieron cargar los productos
           </div>
         ) : filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product: Product) => (
-              <ProductCard key={product._id} {...product} />
+              <div key={product._id} className="flex justify-center">
+                <ProductCard {...product} />
+              </div>
             ))}
           </div>
+
         ) : (
           <div className="text-center py-12">
             <svg

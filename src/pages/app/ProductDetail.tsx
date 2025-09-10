@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProductById } from '../../api/PasteleriaApi';
 import type { Product } from '../../interfaces/Product';
+import PinkSpinner from '../../components/PinkSpinner';
 
 const ProductDetail = () => {
   const { categoria, id } = useParams<{ categoria: string; id: string }>();
@@ -29,7 +30,7 @@ const ProductDetail = () => {
       });
   }, [categoria, id]);
 
-  if (loading) return <div className="text-center py-12">Cargando producto...</div>;
+  if (loading) return <PinkSpinner />;
   if (error) return <div className="text-center py-12 text-red-600">{error}</div>;
   if (!product) return <div className="text-center py-12">Producto no encontrado</div>;
 
