@@ -32,7 +32,7 @@ export const TableProducts = () => {
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
             {loading ? (
-                <PinkSpinner />
+                <PinkSpinner message="Cargando productos" />
             ) : (
                 <div className="overflow-x-auto">
                     <div className="max-w-6xl mx-auto px-4 py-8">
