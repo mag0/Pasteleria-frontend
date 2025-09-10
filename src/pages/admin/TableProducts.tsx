@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getProducts, deleteProduct } from "../../api/PasteleriaApi";
 import type { Product } from "../../interfaces/Product";
 import { useNavigate } from "react-router-dom";
+import PinkSpinner from "../../components/PinkSpinner";
 
 export const TableProducts = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -30,20 +31,27 @@ export const TableProducts = () => {
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold mb-6 text-center">Lista de Productos</h1>
             {loading ? (
-                <p className="text-center text-gray-500">Cargando productos...</p>
+                <PinkSpinner />
             ) : (
                 <div className="overflow-x-auto">
                     <div className="max-w-6xl mx-auto px-4 py-8">
                         <div className="flex justify-between items-center mb-6">
-                            <h1 className="text-2xl font-bold text-center">Lista de Productos</h1>
-                            <button
-                                onClick={() => navigate("/admin/createForm")}
-                                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
-                            >
-                                + Crear producto
-                            </button>
+                            <h1 className="text-4xl font-bold text-center">Lista de Productos</h1>
+                            <div className="flex flex-col-reverse gap-2">
+                                <button
+                                    onClick={() => navigate("/admin/createForm")}
+                                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+                                >
+                                    Agregar producto
+                                </button>
+                                <button
+                                    onClick={() => navigate("/productos")}
+                                    className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition"
+                                >
+                                    Ver web
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
@@ -72,16 +80,16 @@ export const TableProducts = () => {
                                     <td className="px-4 py-3">{product.category}</td>
                                     <td className="px-4 py-3">{product.description}</td>
                                     <td className="px-4 py-3">${product.price}</td>
-                                    <td className="px-4 py-3 space-x-2">
+                                    <td className="flex flex-col justify-center items-center px-4 py-3 gap-2">
                                         <button
                                             onClick={() => navigate(`/admin/editForm/${product._id}`)}
-                                            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                                            className="w-full px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
                                         >
                                             Editar
                                         </button>
                                         <button
                                             onClick={() => handleDelete(product._id)}
-                                            className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                                            className="w-full px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
                                         >
                                             Eliminar
                                         </button>

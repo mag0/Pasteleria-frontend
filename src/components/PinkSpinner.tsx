@@ -1,30 +1,42 @@
+interface CupcakeSpinnerProps {
+    message: string;
+}
 
-const PinkSpinner = () => (
+const CupcakeSpinner = ({ message }: CupcakeSpinnerProps) => (
     <div className="flex flex-col items-center justify-center py-12">
         <svg
-            className="animate-spin h-12 w-12 text-pink-400"
-            viewBox="0 0 50 50"
-            fill="none"
+            className="h-20 w-20 animate-bounce"
+            viewBox="0 0 64 64"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <circle
-                className="opacity-25"
-                cx="25"
-                cy="25"
-                r="20"
-                stroke="currentColor"
-                strokeWidth="6"
+            {/* Base del cupcake */}
+            <path
+                d="M16 28h32l-4 24H20l-4-24z"
+                fill="#f9a8d4"  // rosa pastel
+            />
+            {/* Líneas del pirotín */}
+            <path d="M22 28l2 24M28 28l2 24M34 28l2 24M40 28l2 24" stroke="#ec4899" strokeWidth="2" />
+
+            {/* Frosting */}
+            <path
+                d="M32 10c-8 0-14 6-14 12 0 4 2 7 5 9h18c3-2 5-5 5-9 0-6-6-12-14-12z"
+                fill="#f472b6"
             />
             <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M25 5a20 20 0 0 1 20 20h-6a14 14 0 0 0-14-14V5z"
+                d="M24 18c0-4 3-7 8-7s8 3 8 7c0 3-2 5-4 6H28c-2-1-4-3-4-6z"
+                fill="#f9a8d4"
             />
+
+            {/* Chispitas */}
+            <circle cx="26" cy="18" r="1.5" fill="#fff" />
+            <circle cx="34" cy="14" r="1.5" fill="#fff" />
+            <circle cx="38" cy="20" r="1.5" fill="#fff" />
         </svg>
+
         <span className="mt-4 text-pink-500 font-semibold text-lg">
-            Cargando productos...
+            {message}
         </span>
     </div>
 );
 
-export default PinkSpinner;
+export default CupcakeSpinner;

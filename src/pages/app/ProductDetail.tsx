@@ -30,7 +30,7 @@ const ProductDetail = () => {
       });
   }, [categoria, id]);
 
-  if (loading) return <PinkSpinner />;
+  if (loading) return <PinkSpinner message={'Preparando dulzura...'} />;
   if (error) return <div className="text-center py-12 text-red-600">{error}</div>;
   if (!product) return <div className="text-center py-12">Producto no encontrado</div>;
 

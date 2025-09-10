@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -25,7 +26,7 @@ const Navbar = () => {
           <div className="sm:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              className="inline-flex items-center justify-center p-2 rounded-md bg-pink-200 text-pink-600 hover:text-pink-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pink-600"
               aria-expanded="false"
             >
               <span className="sr-only">Abrir menú principal</span>
@@ -67,10 +68,10 @@ const Navbar = () => {
       {/* Menú móvil */}
       <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}>
         <div className="pt-2 pb-3 space-y-1">
-          <Link to="/" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
+          <Link to="/" onClick={closeMenu} className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
             Inicio
           </Link>
-          <Link to="/productos" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
+          <Link to="/productos" onClick={closeMenu} className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">
             Productos
           </Link>
           {/* <Link to="/contacto" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 hover:bg-gray-50 hover:border-primary hover:text-primary">

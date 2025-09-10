@@ -95,7 +95,7 @@ const Products = () => {
 
         {/* Lista de productos */}
         {loading ? (
-          <PinkSpinner />
+          <PinkSpinner message={'Preparando dulzura...'} />
         ) : isError ? (
           <div className="text-center py-12 text-red-600">
             No se pudieron cargar los productos
