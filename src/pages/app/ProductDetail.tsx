@@ -45,7 +45,7 @@ const ProductDetail = () => {
         </svg>
         Volver
       </button>
-      <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
+      <div className="bg-[#FDF6F0] border border-[#C9A227]/30 rounded-md shadow-xl p-6 flex flex-col md:flex-row gap-8">
         <img
           src={product.imageUrl}
           alt={product.name}

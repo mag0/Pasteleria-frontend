@@ -7,28 +7,39 @@ const ProductCard = ({ _id, name, imageUrl, category }: Product) => {
 
   return (
     <>
-      <div className="bg-pink-50 rounded-lg shadow-md p-4 flex flex-col h-full relative">
-        <div className="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4">
+      <div className="bg-[#FDF6F0] border border-[#C9A227]/40 rounded-md shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col">
+
+        {/* Imagen */}
+        <div className="h-80 overflow-hidden">
           <img
             src={imageUrl}
             alt={name}
-            className="w-full h-full object-cover cursor-zoom-in"
             onClick={() => setZoomed(true)}
+            className="w-full h-full object-cover cursor-zoom-in hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <h3 className="text-xl font-bold text-primary mb-4">{name}</h3>
-        {/* <p className="text-gray-700 mb-2">{description}</p> */}
-        <div className="mt-auto flex justify-end">
-          <Link
-            to={`/productos/${category}/${_id}`}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90"
-          >
-            Ver detalle
-          </Link>
+
+        {/* Contenido */}
+        <div className="p-6 font-serif flex flex-col flex-1">
+
+          <h3 className="text-lg text-[#9E3A66] mb-3 tracking-wide">
+            {name}
+          </h3>
+
+          {/* CTA abajo */}
+          <div className="mt-auto pt-4 border-t border-[#C9A227]/30 flex justify-end">
+            <Link
+              to={`/productos/${category}/${_id}`}
+              className="px-5 py-2 bg-[#9E3A66] text-white rounded-md hover:bg-[#7d2d52] transition"
+            >
+              Ver detalle
+            </Link>
+          </div>
+
         </div>
       </div>
 
-      {/* Lightbox / Modal */}
+      {/* LIGHTBOX */}
       {zoomed && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"

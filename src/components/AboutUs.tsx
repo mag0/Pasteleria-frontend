@@ -1,24 +1,47 @@
+import React from "react";
+
 const AboutUs = () => {
   return (
-    <section className="py-12 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="mt-2 text-3xl leading-8 font-serif font-bold text-primary sm:text-4xl">
-            ¿Quien soy?
-          </p>
-          <p className="mt-4 text-xl text-gray-600 lg:mx-auto">
-            Hace un par de años descubrí el maravilloso mundo de la pastelería y, desde entonces, no he parado de batir.
-            Adoro cocinar tortas, masas y galletas. Me encanta diseñar formas, nuevas decoraciones y probar rellenos.
-          </p>
-          <p className="mt-4 text-xl text-gray-600 lg:mx-auto">
-            Es un placer plasmar en mis productos los deseos y preferencias de mis clientes, y que mis preparaciones
-            los dejen satisfechos y felices. Cocino para deleitarme y para que quienes compran mis productos también
-            lo hagan.
-          </p>
-          <p className="mt-4 text-xl text-gray-600 lg:mx-auto">
-            Elegí lo que más te guste y descubrí cómo estas delicias pueden alegrar tu día. ¡Contá conmigo
-            para endulzar tus celebraciones!
-          </p>
+    <section className="py-20 bg-[#FDF6F0]/100">
+      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+        {/* Imagen */}
+        <div className="flex justify-center">
+          <img
+            src="/images/perfil.png"
+            alt="Pastelera"
+            className="w-72 h-72 object-cover rounded-full shadow-2xl border-4 border-[#C9A227]/40"
+          />
+        </div>
+
+        {/* Texto */}
+        <div>
+          <h2 className="text-4xl font-serif text-[#9E3A66] mb-6">
+            La Pastelera del Reino
+          </h2>
+
+          <div className="space-y-5 text-[#4A4A4A] leading-relaxed text-lg">
+            <p>
+              Hace un par de años descubrí el maravilloso mundo de la pastelería,
+              y desde entonces no dejé de perfeccionarme en cada receta,
+              buscando siempre crear algo especial.
+            </p>
+
+            <p>
+              Cada producto que realizo está hecho con dedicación,
+              cuidando cada detalle para que no solo sea rico,
+              sino también visualmente hermoso.
+            </p>
+
+            <p>
+              Es un placer poder formar parte de tus momentos especiales,
+              aportando algo dulce, único y hecho con amor.
+            </p>
+
+            <p className="font-semibold text-[#9E3A66]">
+              Elegí lo que más te guste y dejá que la magia haga el resto ✨
+            </p>
+          </div>
         </div>
 
       </div>

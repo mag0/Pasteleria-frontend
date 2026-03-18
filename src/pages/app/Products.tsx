@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { categories } from '../../data/categories';
@@ -7,9 +7,14 @@ import { getProducts } from '../../api/PasteleriaApi';
 import type { Product } from '../../interfaces/Product';
 import PinkSpinner from '../../components/PinkSpinner';
 
+const ITEMS_PER_PAGE = 9;
+
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('todas');
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const {
     data: productsData = [],
@@ -21,129 +26,147 @@ const Products = () => {
     queryFn: getProducts
   });
 
-
   useEffect(() => {
     if (isError && error) toast.error(error.message);
   }, [isError, error]);
 
+  // 🔎 FILTRADO
   const filteredProducts = productsData.filter((product: Product) => {
     const categoryMatch =
       activeCategory === 'todas' || product.category === activeCategory;
+
     const searchMatch =
       searchTerm === '' ||
       product.name.toLowerCase().includes(searchTerm.toLowerCase());
+
     return categoryMatch && searchMatch;
   });
 
-  return (
-    <div className="bg-background py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-serif font-bold text-primary">
-            Nuestros Productos
-          </h1>
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Descubre nuestra variedad de productos artesanales elaborados con
-            los mejores ingredientes y mucho amor.
-          </p>
-        </div>
+  // 📄 PAGINACIÓN
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
-        {/* Filtros */}
-        <div className="mb-8 bg-white p-6 rounded-lg shadow-md">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Búsqueda */}
-            <div>
-              <label
-                htmlFor="search"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Buscar
-              </label>
+  const paginatedProducts = filteredProducts.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const changePage = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+
+    setCurrentPage(page);
+
+    setTimeout(() => {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 0);
+  };
+
+  // 🔁 reset page al filtrar
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, searchTerm]);
+
+  return (
+    <div className="relative min-h-screen" ref={sectionRef}>
+
+      {/* FONDO */}
+      <div className="absolute inset-0 bg-[url('/images/bg.jpg')] bg-cover bg-center"></div>
+      <div className="absolute inset-0 bg-[#9E3A66]/70 backdrop-blur-[2px]"></div>
+
+      <div className="relative py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* HEADER */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl font-serif text-white mb-4">
+              Nuestros Productos
+            </h1>
+            <p className="text-[#FDF6F0] max-w-2xl mx-auto">
+              Descubre nuestras creaciones artesanales hechas con amor ✨
+            </p>
+          </div>
+
+          {/* FILTROS */}
+          <div className="flex flex-col items-center gap-6 mb-16">
+
+            <div className="w-full max-w-md">
               <input
                 type="text"
-                id="search"
                 placeholder="Buscar productos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-5 py-3 rounded-full bg-[#FDF6F0] text-[#4A4A4A] border border-[#C9A227]/30 shadow-md focus:outline-none focus:ring-2 focus:ring-[#C9A227]/50"
               />
             </div>
 
-            {/* Filtro por categoría */}
-            <div>
-              <label
-                htmlFor="category"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Categoría
-              </label>
-              <select
-                id="category"
-                value={activeCategory}
-                onChange={(e) => setActiveCategory(e.target.value)}
-                className="bg-white w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </option>
+            <div className="flex flex-wrap justify-center gap-3">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-5 py-2 text-sm font-serif tracking-wide rounded-full border transition-all duration-300
+                  ${activeCategory === cat
+                      ? "bg-[#9E3A66] text-white border-[#C9A227] shadow-lg scale-105"
+                      : "bg-[#FDF6F0] text-[#9E3A66] border-[#C9A227]/40 hover:bg-[#f4d6d1]"
+                    }`}
+                >
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </button>
+              ))}
+            </div>
+
+          </div>
+
+          {/* PRODUCTOS */}
+          {loading ? (
+            <PinkSpinner message={'Preparando dulzura...'} />
+          ) : isError ? (
+            <div className="text-center py-12 text-red-300">
+              No se pudieron cargar los productos
+            </div>
+          ) : paginatedProducts.length > 0 ? (
+
+            <>
+              <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                {paginatedProducts.map((product: Product) => (
+                  <ProductCard key={product._id} {...product} />
                 ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Lista de productos */}
-        {loading ? (
-          <PinkSpinner message={'Preparando dulzura...'} />
-        ) : isError ? (
-          <div className="text-center py-12 text-red-600">
-            No se pudieron cargar los productos
-          </div>
-        ) : filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product: Product) => (
-              <div key={product._id} className="flex justify-center">
-                <ProductCard {...product} />
               </div>
-            ))}
-          </div>
 
-        ) : (
-          <div className="text-center py-12">
-            <svg
-              className="mx-auto h-12 w-12 text-red-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <h3 className="mt-2 text-lg font-medium text-gray-900">
+              {/* 🔥 PAGINACIÓN */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-8 mt-16 font-serif">
+
+                  <button
+                    onClick={() => changePage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="px-6 py-2 border border-[#C9A227]/50 bg-[#FDF6F0] text-[#9E3A66] hover:bg-[#F8EDEB] disabled:opacity-40 transition"
+                  >
+                    ← Anterior
+                  </button>
+
+                  <div className="text-white tracking-wide">
+                    Página {currentPage} de {totalPages}
+                  </div>
+
+                  <button
+                    onClick={() => changePage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="px-6 py-2 border border-[#C9A227]/50 bg-[#FDF6F0] text-[#9E3A66] hover:bg-[#F8EDEB] disabled:opacity-40 transition"
+                  >
+                    Siguiente →
+                  </button>
+
+                </div>
+              )}
+            </>
+
+          ) : (
+            <div className="text-center py-12 text-white">
               No se encontraron productos
-            </h3>
-            <p className="mt-1 text-gray-500">
-              Prueba con otros filtros o términos de búsqueda.
-            </p>
-            <div className="mt-6">
-              <button
-                onClick={() => {
-                  setActiveCategory('todas');
-                  setSearchTerm('');
-                }}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90"
-              >
-                Restablecer filtros
-              </button>
             </div>
-          </div>
-        )}
+          )}
+
+        </div>
       </div>
     </div>
   );

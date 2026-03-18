@@ -2,7 +2,7 @@ import ContactForm from '../../components/ContactForm';
 
 const Contact = () => {
   return (
-    <div className="bg-background py-12">
+    <div className="bg-[#9E3A66]/30 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-serif font-bold text-primary">Contacto</h1>
@@ -12,7 +12,7 @@ const Contact = () => {
         </div>
 
         <div className="max-w-lg mx-auto">
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className="bg-[#FDF6F0] border border-[#C9A227]/30 shadow-lg p-8">
             <ContactForm />
           </div>
         </div>

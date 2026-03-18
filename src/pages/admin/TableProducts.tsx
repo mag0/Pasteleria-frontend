@@ -30,74 +30,99 @@ export const TableProducts = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="min-h-screen bg-[#F8EDEB] py-10 px-4">
+
             {loading ? (
                 <PinkSpinner message="Cargando productos" />
             ) : (
-                <div className="overflow-x-auto">
-                    <div className="max-w-6xl mx-auto px-4 py-8">
-                        <div className="flex justify-between items-center mb-6">
-                            <h1 className="text-4xl font-bold text-center">Lista de Productos</h1>
-                            <div className="flex flex-col-reverse gap-2">
-                                <button
-                                    onClick={() => navigate("/admin/createForm")}
-                                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
-                                >
-                                    Agregar producto
-                                </button>
-                                <button
-                                    onClick={() => navigate("/productos")}
-                                    className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition"
-                                >
-                                    Ver web
-                                </button>
-                            </div>
+                <div className="max-w-7xl mx-auto">
+
+                    {/* HEADER */}
+                    <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+                        <h1 className="text-4xl font-serif text-[#9E3A66]">
+                            Productos
+                        </h1>
+
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => navigate("/admin/createForm")}
+                                className="bg-[#9E3A66] text-white px-5 py-2 rounded-md shadow hover:bg-[#7d2d52]"
+                            >
+                                + Nuevo
+                            </button>
+
+                            <button
+                                onClick={() => navigate("/productos")}
+                                className="bg-[#C9A227] text-white px-5 py-2 rounded-md shadow hover:opacity-90"
+                            >
+                                Ver web
+                            </button>
                         </div>
                     </div>
-                    <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
-                        <thead className="bg-gray-100">
-                            <tr>
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Imagen</th>
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Nombre</th>
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Categoría</th>
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Descripción</th>
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Precio</th>
-                                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {products.map(product => (
-                                <tr key={product._id} className="border-t border-gray-200 hover:bg-gray-50">
-                                    <td className="px-4 py-3">
-                                        <img
-                                            src={product.imageUrl}
 
-                                            alt={product.name}
-                                            className="w-14 h-14 object-cover rounded-md"
-                                        />
-                                    </td>
-                                    <td className="px-4 py-3">{product.name}</td>
-                                    <td className="px-4 py-3">{product.category}</td>
-                                    <td className="px-4 py-3">{product.description}</td>
-                                    <td className="px-4 py-3">${product.price}</td>
-                                    <td className="flex flex-col justify-center items-center px-4 py-3 gap-2">
-                                        <button
-                                            onClick={() => navigate(`/admin/editForm/${product._id}`)}
-                                            className="w-full px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-                                        >
-                                            Editar
-                                        </button>
-                                        <button
-                                            onClick={() => handleDelete(product._id)}
-                                            className="w-full px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
-                                        >
-                                            Eliminar
-                                        </button>
-                                    </td>
+                    {/* TABLA */}
+                    <div className="overflow-x-auto rounded-xl shadow-lg border border-[#C9A227]/30">
+                        <table className="min-w-full bg-[#FDF6F0]">
+
+                            <thead className="bg-[#9E3A66] text-white">
+                                <tr>
+                                    <th className="px-4 py-3 text-left">Imagen</th>
+                                    <th className="px-4 py-3 text-left">Nombre</th>
+                                    <th className="px-4 py-3 text-left">Categoría</th>
+                                    <th className="px-4 py-3 text-left">Precio</th>
+                                    <th className="px-4 py-3 text-center">Acciones</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody>
+                                {products.map((product, i) => (
+                                    <tr
+                                        key={product._id}
+                                        className={`border-t border-[#C9A227]/20 ${i % 2 === 0 ? "bg-[#FDF6F0]" : "bg-[#F8EDEB]"
+                                            }`}
+                                    >
+                                        <td className="px-4 py-3">
+                                            <img
+                                                src={product.imageUrl}
+                                                className="w-14 h-14 object-cover rounded-md shadow"
+                                            />
+                                        </td>
+
+                                        <td className="px-4 py-3 text-[#4A4A4A]">
+                                            {product.name}
+                                        </td>
+
+                                        <td className="px-4 py-3 text-[#9E3A66]">
+                                            {product.category}
+                                        </td>
+
+                                        <td className="px-4 py-3 text-[#C9A227] font-bold">
+                                            ${product.price}
+                                        </td>
+
+                                        <td className="px-4 py-3 flex flex-col gap-2 items-center">
+
+                                            <button
+                                                onClick={() => navigate(`/admin/editForm/${product._id}`)}
+                                                className="w-full px-3 py-1 bg-[#9E3A66] text-white rounded hover:bg-[#7d2d52]"
+                                            >
+                                                Editar
+                                            </button>
+
+                                            <button
+                                                onClick={() => handleDelete(product._id)}
+                                                className="w-full px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                                            >
+                                                Eliminar
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+
+                        </table>
+                    </div>
                 </div>
             )}
         </div>
