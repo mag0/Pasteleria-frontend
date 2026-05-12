@@ -80,9 +80,6 @@ const Products = () => {
             <h1 className="text-4xl font-serif text-white mb-4">
               Nuestros Productos
             </h1>
-            <p className="text-[#FDF6F0] max-w-2xl mx-auto">
-              Descubre nuestras creaciones artesanales hechas con amor ✨
-            </p>
           </div>
 
           {/* FILTROS */}

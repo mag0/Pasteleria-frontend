@@ -21,7 +21,7 @@ function App() {
           {/* <Route path="/contacto" element={<Contact />} /> */}
         </Route>
         <Route path="/admin" element={<AdminLayout />}>
-          <Route path="tablaProductos" element={<TableProducts />} />
+          <Route path="productTable" element={<TableProducts />} />
           <Route path="createForm" element={<ProductForm />} />
           <Route path="editForm/:id" element={<EditProductForm />} />
         </Route>

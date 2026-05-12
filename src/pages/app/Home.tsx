@@ -2,7 +2,7 @@
 import Hero from '../../components/Hero';
 import AboutUs from '../../components/AboutUs';
 // import { Link } from 'react-router-dom';
-import Testimonials from '../../components/Testimonials';
+// import Testimonials from '../../components/Testimonials';
 import { useEffect } from 'react';
 import { ping } from '../../api/PasteleriaApi';
 // import type { FeaturedProduct } from '../../interfaces/FeaturedProduct';
@@ -24,7 +24,7 @@ const Home = () => {
     <div>
       <Hero />
       <AboutUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </div>
   );
 };

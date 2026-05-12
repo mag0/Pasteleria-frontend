@@ -93,7 +93,6 @@ export const EditProductForm = () => {
         }
     };
 
-    // 🔥 SPINNER DE CARGA INICIAL
     if (loading) {
         return <PinkSpinner message="Cargando producto..." />;
     }

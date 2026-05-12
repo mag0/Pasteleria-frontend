@@ -4,7 +4,6 @@ const AboutUs = () => {
     <section className="py-20 bg-[#FDF6F0]/100">
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Imagen */}
         <div className="flex justify-center">
           <img
             src="/images/perfil.png"
@@ -13,7 +12,6 @@ const AboutUs = () => {
           />
         </div>
 
-        {/* Texto */}
         <div>
           <h2 className="text-4xl font-serif text-[#9E3A66] mb-6">
             La Pastelera del Reino

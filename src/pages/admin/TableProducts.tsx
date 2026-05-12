@@ -69,6 +69,7 @@ export const TableProducts = () => {
                                     <th className="px-4 py-3 text-left">Imagen</th>
                                     <th className="px-4 py-3 text-left">Nombre</th>
                                     <th className="px-4 py-3 text-left">Categoría</th>
+                                    <th className="px-4 py-3 text-left">Descripcion</th>
                                     <th className="px-4 py-3 text-left">Precio</th>
                                     <th className="px-4 py-3 text-center">Acciones</th>
                                 </tr>
@@ -94,6 +95,10 @@ export const TableProducts = () => {
 
                                         <td className="px-4 py-3 text-[#9E3A66]">
                                             {product.category}
+                                        </td>
+
+                                        <td className="px-4 py-3 text-[#9E3A66]">
+                                            {product.description}
                                         </td>
 
                                         <td className="px-4 py-3 text-[#C9A227] font-bold">
