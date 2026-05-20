@@ -34,10 +34,6 @@ const AboutUs = () => {
               Es un placer poder formar parte de tus momentos especiales,
               aportando algo dulce, único y hecho con amor.
             </p>
-
-            <p className="font-semibold text-[#9E3A66]">
-              Elegí lo que más te guste y dejá que la magia haga el resto ✨
-            </p>
           </div>
         </div>
 

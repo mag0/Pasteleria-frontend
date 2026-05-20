@@ -19,39 +19,12 @@ const Footer = () => {
 
             <div className="w-16 h-[1px] bg-[#C9A227]/60 mb-5" />
 
-            <p className="text-sm leading-relaxed text-white/80 max-w-sm">
+            <p className="leading-relaxed text-white/80 max-w-sm">
               Elaboración artesanal de productos dulces con ingredientes de
               calidad, detalles delicados y un toque casero en cada creación.
             </p>
           </div>
 
-          {/* Horarios */}
-          {/* <div>
-            <h3 className="text-xl tracking-wide mb-5 text-[#FDF6F0]">
-              Horarios
-            </h3>
-
-            <div className="w-12 h-[1px] bg-[#C9A227]/50 mb-5" />
-
-            <ul className="space-y-3 text-sm text-white/80">
-              <li className="flex justify-between border-b border-white/10 pb-2">
-                <span>Lunes a Viernes</span>
-                <span>9:00 - 19:00</span>
-              </li>
-
-              <li className="flex justify-between border-b border-white/10 pb-2">
-                <span>Sábados</span>
-                <span>9:00 - 14:00</span>
-              </li>
-
-              <li className="flex justify-between">
-                <span>Domingos</span>
-                <span>Cerrado</span>
-              </li>
-            </ul>
-          </div> */}
-
-          {/* Contacto */}
           <div>
             <h3 className="text-xl tracking-wide mb-5 text-[#FDF6F0]">
               Contacto
@@ -59,7 +32,7 @@ const Footer = () => {
 
             <div className="w-12 h-[1px] bg-[#C9A227]/50 mb-5" />
 
-            <ul className="space-y-4 text-sm text-white/80">
+            <ul className="space-y-4 text-white/80">
 
               <li className="flex items-start gap-3">
                 <div className="mt-1">
@@ -115,11 +88,6 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-14 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-
-            <p className="text-sm text-white/60 tracking-wide text-center md:text-left">
-              &copy; {new Date().getFullYear()} Pastelería Belén. Todos los derechos reservados.
-            </p>
-
             {/* Redes */}
             <div className="flex items-center gap-3">
 
@@ -130,9 +98,9 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 px-4 py-2 rounded-full transition-all duration-300 backdrop-blur-sm"
               >
-                <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="h-7 w-7 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -153,9 +121,9 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 px-4 py-2 rounded-full transition-all duration-300 backdrop-blur-sm"
               >
-                <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="h-4 w-4 text-white"
+                    className="h-9 w-9 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -170,6 +138,11 @@ const Footer = () => {
               </a>
 
             </div>
+            <p className="text-white/60 tracking-wide text-center md:text-left">
+              &copy; {new Date().getFullYear()} Pastelería Belén. Todos los derechos reservados.
+            </p>
+
+
           </div>
         </div>
       </div>

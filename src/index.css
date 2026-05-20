@@ -6,6 +6,10 @@ a:hover {
   color: #FF6B9E;
 }
 
+.imagen-fondo {
+  background-image: url('./public/logos/imagenFondo.jpeg');
+}
+
 body {
   margin: 0;
   min-width: 320px;

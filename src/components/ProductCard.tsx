@@ -16,35 +16,25 @@ const ProductCard = ({ name, price, imageUrl, description }: Product) => {
             onClick={() => setZoomed(true)}
             className="w-full h-full object-cover cursor-zoom-in group-hover:scale-105 transition-transform duration-700"
           />
-
-          {/* Badge precio */}
-          <div className="absolute bottom-4 right-4 bg-[#FDF6F0]/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md border border-[#C9A227]/20">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C9A227] block mb-1">
-              Precio
-            </span>
-
-            <span className="text-2xl font-semibold text-[#9E3A66] leading-none">
-              ${price}
-            </span>
-          </div>
         </div>
 
-        {/* Contenido */}
         <div className="p-6 flex flex-col flex-1 bg-gradient-to-b from-[#FDF6F0] to-[#FAEEE4]">
 
-          {/* Nombre */}
-          <h3 className="text-xl font-serif text-[#9E3A66] tracking-wide leading-snug mb-3">
+          <h3 className="text-2xl font-serif font-semibold text-[#9E3A66] tracking-wide leading-snug mb-3">
             {name}
           </h3>
 
-          {/* Línea decorativa */}
           <div className="w-12 h-[1px] bg-[#C9A227]/50 mb-4" />
 
-          {/* Descripción */}
-          <p className="text-[#6B5B63] text-sm leading-relaxed line-clamp-4">
+          <p className="text-[#6B5B63] leading-relaxed line-clamp-4 mb-3">
             {description}
           </p>
 
+          <div className="w-12 h-[1px] bg-[#C9A227]/50 mb-4" />
+
+          <span className="w-full flex justify-end text-xl  text-[#9E3A66] leading-none mt-auto">
+            ${price}
+          </span>
         </div>
       </div>
 

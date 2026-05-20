@@ -14,6 +14,7 @@ const Navbar = () => {
 
           {/* 🔹 IZQUIERDA → LOGO */}
           <div className="flex items-center">
+            <img src="/logos/chicaLogo.png" width="75" height="75" alt="logo" />
             <Link
               to="/"
               className="text-xl sm:text-2xl font-serif text-[#9E3A66] tracking-wider"
