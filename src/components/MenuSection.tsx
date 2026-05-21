@@ -12,7 +12,7 @@ const MenuSection = ({ title, products }: Props) => {
             {/* TITULO */}
             <div className="text-center mb-10">
 
-                <h2 className="text-4xl font-serif text-[#9E3A66] mb-4 capitalize">
+                <h2 className="text-3xl font-serif text-[#9E3A66] mb-4 capitalize">
                     {title}
                 </h2>
 
@@ -26,24 +26,18 @@ const MenuSection = ({ title, products }: Props) => {
 
                     <div
                         key={product._id}
-                        className="flex items-center justify-between gap-4"
+                        className="flex items-center w-full"
                     >
 
-                        <div className="flex flex-col">
+                        <span className="text-[#5F4B53] text-lg font-serif whitespace-nowrap">
+                            {product.name}
+                        </span>
 
-                            <span className="text-[#5F4B53] text-lg font-serif">
-                                {product.name}
-                            </span>
-
-                            {product.description && (
-                                <span className="text-sm text-[#8A7B82] italic mt-1">
-                                    {product.description}
-                                </span>
-                            )}
-
+                        <div className="flex-1 overflow-hidden mx-3">
+                            <div className="whitespace-nowrap text-[#C9A227]/70 tracking-[0.15em]">
+                                ........................................................................................................................................................................................................
+                            </div>
                         </div>
-
-                        <div className="flex-1 border-b border-dotted border-[#C9A227]/40" />
 
                         <span className="text-[#9E3A66] text-xl font-semibold whitespace-nowrap">
                             ${product.price}

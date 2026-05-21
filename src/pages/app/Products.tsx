@@ -75,9 +75,9 @@ const Products = () => {
 
           {/* HEADER */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-serif text-white mb-4">
-              Nuestros Productos
-            </h1>
+            <h2 className="text-6xl font-serif text-white mb-6">
+              Mis Preparaciones
+            </h2>
           </div>
 
           {/* FILTROS */}
@@ -123,7 +123,7 @@ const Products = () => {
             <>
               <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                 {paginatedProducts.map((product: Product) => (
-                  <ProductCard key={product._id} {...product} />
+                  <ProductCard key={product._id} product={product} />
                 ))}
               </div>
 

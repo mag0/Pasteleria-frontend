@@ -14,7 +14,7 @@ const AboutUs = () => {
 
         <div>
           <h2 className="text-4xl font-serif text-[#9E3A66] mb-6">
-            La Pastelera del Reino
+            ¿Quién soy?
           </h2>
 
           <div className="space-y-5 text-[#4A4A4A] leading-relaxed text-lg">

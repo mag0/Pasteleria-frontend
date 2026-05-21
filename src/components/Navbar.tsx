@@ -6,6 +6,35 @@ const Navbar = () => {
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  const navLinks = [
+    { name: "Inicio", path: "/" },
+    { name: "Productos", path: "/productos" },
+    { name: "Precios", path: "/menu" },
+  ];
+
+  const botonEncargar = (<a
+    href="https://wa.me/5491122909676"
+    target="_blank"
+    className="
+    mt-2
+    bg-[#9E3A66]
+    text-white
+    px-6
+    py-2
+    rounded-md
+    shadow-lg
+    border border-transparent
+    transition-all duration-300
+    hover:bg-[#FDF6F0]
+    hover:text-[#9E3A66]
+    hover:border-[#9E3A66]
+    hover:shadow-xl
+    hover:-translate-y-0.5
+  "
+  >
+    Encargar
+  </a>);
+
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-md border-b border-[#C9A227]/30 bg-[#FDF6F0]/80 shadow-lg">
 
@@ -22,28 +51,22 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 font-serif text-sm tracking-wide">
-            <Link to="/" className="text-[#4A4A4A] hover:text-[#9E3A66] transition">
-              Inicio
-            </Link>
-            <Link to="/productos" className="text-[#4A4A4A] hover:text-[#9E3A66] transition">
-              Productos
-            </Link>
-            <Link to="/menu" className="text-[#4A4A4A] hover:text-[#9E3A66] transition">
-              Precios
-            </Link>
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 font-serif text-base tracking-wide">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-[#4A4A4A] hover:text-[#9E3A66] transition"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
           <div className="flex items-center gap-3">
-
-            <a
-              href="https://wa.me/5491122909676"
-              target="_blank"
-              className="hidden md:block bg-[#9E3A66] text-white px-5 py-2 rounded-md font-serif shadow-lg hover:bg-[#7d2d52] transition"
-            >
-              Encargar
-            </a>
-
+            <div className="hidden md:block">
+              {botonEncargar}
+            </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-md bg-[#9E3A66]/20 text-[#9E3A66]"
@@ -63,21 +86,18 @@ const Navbar = () => {
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden bg-[#FDF6F0] border-t border-[#C9A227]/20`}>
         <div className="flex flex-col items-center font-serif py-4 space-y-3">
 
-          <Link to="/" onClick={closeMenu} className="text-[#4A4A4A] hover:text-[#9E3A66]">
-            Inicio
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={closeMenu}
+              className="text-[#4A4A4A] hover:text-[#9E3A66]"
+            >
+              {link.name}
+            </Link>
+          ))}
 
-          <Link to="/productos" onClick={closeMenu} className="text-[#4A4A4A] hover:text-[#9E3A66]">
-            Productos
-          </Link>
-
-          <a
-            href="https://wa.me/5491122909676"
-            target="_blank"
-            className="mt-2 bg-[#9E3A66] text-white px-6 py-2 rounded-md shadow-lg hover:bg-[#7d2d52]"
-          >
-            Encargar
-          </a>
+          {botonEncargar}
 
         </div>
       </div>

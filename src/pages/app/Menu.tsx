@@ -9,6 +9,7 @@ import type { Product } from '../../interfaces/Product';
 
 import MenuSection from '../../components/MenuSection';
 import PinkSpinner from '../../components/PinkSpinner';
+import { categories } from "../../data/categories";
 
 export const Menu = () => {
 
@@ -28,7 +29,6 @@ export const Menu = () => {
         }
     }, [isError, error]);
 
-    // 🔥 agrupamos productos por categoría
     const groupedProducts = productsData.reduce((acc, product) => {
 
         const category = product.category;
@@ -46,22 +46,14 @@ export const Menu = () => {
     return (
         <main className="min-h-screen bg-[#FFF8F5] py-20 px-4">
 
-            {/* HEADER */}
             <section className="max-w-5xl mx-auto text-center mb-20">
 
-                <h1 className="text-6xl font-serif text-[#9E3A66] mb-6">
-                    Carta Dulce
-                </h1>
-
-                <div className="w-32 h-[1px] bg-[#C9A227]/60 mx-auto mb-6" />
-
-                <p className="text-[#6B5B63] text-lg font-serif italic">
-                    Dulces momentos dignos de la realeza
-                </p>
+                <h2 className="text-6xl font-serif text-[#9E3A66] mb-6">
+                    Precios
+                </h2>
 
             </section>
 
-            {/* CONTENT */}
             {isLoading ? (
 
                 <PinkSpinner message={'Preparando dulzura...'} />
@@ -76,15 +68,20 @@ export const Menu = () => {
 
                 <div className="max-w-5xl mx-auto flex flex-col gap-16">
 
-                    {Object.entries(groupedProducts).map(([category, products]) => (
+                    {categories
+                        .filter(category =>
+                            category !== "todas" &&
+                            groupedProducts[category]
+                        )
+                        .map((category) => (
 
-                        <MenuSection
-                            key={category}
-                            title={category}
-                            products={products}
-                        />
+                            <MenuSection
+                                key={category}
+                                title={category}
+                                products={groupedProducts[category]}
+                            />
 
-                    ))}
+                        ))}
 
                 </div>
             )}
