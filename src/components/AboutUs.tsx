@@ -13,7 +13,7 @@ const AboutUs = () => {
         </div>
 
         <div>
-          <h2 className="text-4xl font-serif text-[#9E3A66] mb-6">
+          <h2 className="text-4xl font-serif text-[#9E3A66] mb-6 text-center md:text-left">
             ¿Quién soy?
           </h2>
 

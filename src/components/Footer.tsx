@@ -93,7 +93,7 @@ const Footer = () => {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/belu_guerreiro"
+                href="https://www.instagram.com/pasteleria_beluguerreiro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 px-4 py-2 rounded-full transition-all duration-300 backdrop-blur-sm"

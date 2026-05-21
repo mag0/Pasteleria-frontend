@@ -5,6 +5,7 @@ import AboutUs from '../../components/AboutUs';
 // import Testimonials from '../../components/Testimonials';
 import { useEffect } from 'react';
 import { ping } from '../../api/PasteleriaApi';
+import InstagramSection from '../../components/InstagramSection';
 // import type { FeaturedProduct } from '../../interfaces/FeaturedProduct';
 
 const Home = () => {
@@ -12,19 +13,11 @@ const Home = () => {
     ping();
   }, []);
 
-  // const [featuredProducts, setFeaturedProducts] = useState<FeaturedProduct[]>([]);
-
-  // useEffect(() => {
-  //   fetch('/json/featuredProducts.json')
-  //     .then(res => res.json())
-  //     .then(data => setFeaturedProducts(data));
-  // }, []);
-
   return (
     <div>
       <Hero />
       <AboutUs />
-      {/* <Testimonials /> */}
+      <InstagramSection />
     </div>
   );
 };
