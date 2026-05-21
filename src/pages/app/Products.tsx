@@ -30,7 +30,6 @@ const Products = () => {
     if (isError && error) toast.error(error.message);
   }, [isError, error]);
 
-  // 🔎 FILTRADO
   const filteredProducts = productsData.filter((product: Product) => {
     const categoryMatch =
       activeCategory === 'todas' || product.category === activeCategory;
@@ -42,7 +41,6 @@ const Products = () => {
     return categoryMatch && searchMatch;
   });
 
-  // 📄 PAGINACIÓN
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
   const paginatedProducts = filteredProducts.slice(

@@ -12,18 +12,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
 
-          {/* 🔹 IZQUIERDA → LOGO */}
           <div className="flex items-center">
-            <img src="/logos/chicaLogo.png" width="75" height="75" alt="logo" />
+
             <Link
               to="/"
               className="text-xl sm:text-2xl font-serif text-[#9E3A66] tracking-wider"
             >
-              Pastelería Belu
+              <img src="/logos/chicaLogo.png" width="75" height="75" alt="logo" />
             </Link>
           </div>
 
-          {/* 🔹 CENTRO → MENÚ (desktop) */}
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 font-serif text-sm tracking-wide">
             <Link to="/" className="text-[#4A4A4A] hover:text-[#9E3A66] transition">
               Inicio
@@ -31,12 +29,13 @@ const Navbar = () => {
             <Link to="/productos" className="text-[#4A4A4A] hover:text-[#9E3A66] transition">
               Productos
             </Link>
+            <Link to="/menu" className="text-[#4A4A4A] hover:text-[#9E3A66] transition">
+              Precios
+            </Link>
           </div>
 
-          {/* 🔹 DERECHA → CTA + MOBILE */}
           <div className="flex items-center gap-3">
 
-            {/* CTA (solo desktop) */}
             <a
               href="https://wa.me/5491122909676"
               target="_blank"
@@ -45,7 +44,6 @@ const Navbar = () => {
               Encargar
             </a>
 
-            {/* Mobile botón */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-md bg-[#9E3A66]/20 text-[#9E3A66]"
@@ -62,7 +60,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* 🔻 MOBILE MENU */}
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden bg-[#FDF6F0] border-t border-[#C9A227]/20`}>
         <div className="flex flex-col items-center font-serif py-4 space-y-3">
 
@@ -74,7 +71,6 @@ const Navbar = () => {
             Productos
           </Link>
 
-          {/* CTA mobile */}
           <a
             href="https://wa.me/5491122909676"
             target="_blank"
