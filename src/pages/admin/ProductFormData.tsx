@@ -74,7 +74,7 @@ const ProductForm: React.FC = () => {
             });
             setTimeout(() => {
                 setLoading(false);
-                navigate("/admin/tablaProductos");
+                navigate("/admin/productTable");
             }, 1500);
         } catch (error: unknown) {
             if (isAxiosError(error) && error.response) {
@@ -189,7 +189,7 @@ const ProductForm: React.FC = () => {
 
                         <button
                             type="button"
-                            onClick={() => navigate("/admin/tablaProductos")}
+                            onClick={() => navigate("/admin/productTable")}
                             className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg hover:bg-gray-300 transition"
                         >
                             Volver

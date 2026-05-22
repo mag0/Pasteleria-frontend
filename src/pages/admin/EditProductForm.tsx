@@ -82,7 +82,7 @@ export const EditProductForm = () => {
             setMessage("Producto actualizado con éxito 🎉");
 
             setTimeout(() => {
-                navigate("/admin/tablaProductos");
+                navigate("/admin/productTable");
             }, 1200);
 
         } catch (error) {
@@ -184,7 +184,7 @@ export const EditProductForm = () => {
 
                 <button
                     type="button"
-                    onClick={() => navigate("/admin/tablaProductos")}
+                    onClick={() => navigate("/admin/productTable")}
                     className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg hover:bg-gray-300 transition"
                 >
                     Volver

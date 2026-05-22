@@ -35,7 +35,7 @@ const MenuSection = ({ title, products }: Props) => {
 
                         <div className="flex-1 overflow-hidden mx-3">
                             <div className="whitespace-nowrap text-[#C9A227]/70 tracking-[0.15em]">
-                                ........................................................................................................................................................................................................
+
                             </div>
                         </div>
 

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background-white: #fdf6f093;
+  --color-background-pink: #9e3a6542;
+}
+
 a:hover {
   color: #FF6B9E;
 }

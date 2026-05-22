@@ -25,14 +25,14 @@ const InstagramSection = () => {
     const randomProducts = useMemo(() => {
         return [...productsData]
             .sort(() => Math.random() - 0.5)
-            .slice(0, 6);
+            .slice(0, 4);
     }, [productsData]);
 
     return (
-        <section className="relative pt-8 pb-14 bg-[#FDF6F0]/50 overflow-hidden">
+        <section className="relative pt-8 pb-14  overflow-hidden">
 
             {/* FONDO */}
-            <div className="absolute inset-0 bg-[#FFF0F5]/30" />
+            <div className="absolute inset-0 bg-[var(--color-background-white)]" />
 
             <div className="relative max-w-7xl mx-auto px-4">
 
@@ -40,7 +40,7 @@ const InstagramSection = () => {
                 <div className="text-center mb-8">
 
                     <h2 className="mt-2 text-3xl md:text-4xl font-serif text-[#9E3A66]">
-                        Mi Instagram
+                        Seguime en Instagram
                     </h2>
 
                     <div className="w-20 h-[1px] bg-[#C9A227]/60 mx-auto my-4" />
@@ -53,7 +53,7 @@ const InstagramSection = () => {
                 </div>
 
                 {/* GRID */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
 
                     {randomProducts.map((product) => (
 
