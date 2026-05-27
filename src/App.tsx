@@ -7,7 +7,8 @@ import { AdminLayout } from './layouts/AdminLayout';
 import { TableProducts } from './pages/admin/TableProducts';
 import { EditProductForm } from './pages/admin/EditProductForm';
 import Menu from './pages/app/Menu';
-import { ProtectedRoute } from './components/ProtectedRoute';
+import { Navigate } from "react-router-dom";
+import { isAdmin } from "./helper/auth";
 import Login from "./pages/admin/Login";
 import './App.css';
 function App() {
@@ -24,9 +25,11 @@ function App() {
 
         <Route path="/admin"
           element={
-            <ProtectedRoute>
+            isAdmin() ? (
               <AdminLayout />
-            </ProtectedRoute>
+            ) : (
+              <Navigate to="/admin/login" replace />
+            )
           }>
           <Route path="productTable" element={<TableProducts />} />
           <Route path="createForm" element={<ProductForm />} />
