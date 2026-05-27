@@ -101,9 +101,6 @@ const FeaturedProductsCarousel = () => {
                                     <h3 className="text-white text-2xl md:text-4xl font-serif">
                                         {product.name}
                                     </h3>
-                                    <p className="text-white/60 mt-2 text-sm md:text-base">
-                                        {product.description}
-                                    </p>
 
                                 </div>
 
