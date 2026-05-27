@@ -7,12 +7,12 @@ interface Props {
 
 const MenuSection = ({ title, products }: Props) => {
     return (
-        <section className="bg-[#FDF6F0] border border-[#C9A227]/20 rounded-3xl shadow-md p-8 md:p-12">
+        <section className="bg-[#FDF6F0] border border-[#C9A227]/20 rounded-3xl shadow-md p-6 md:p-8">
 
             {/* TITULO */}
-            <div className="text-center mb-10">
+            <div className="text-center mb-8">
 
-                <h2 className="text-3xl font-serif text-[#9E3A66] mb-4 capitalize">
+                <h2 className="text-2xl md:text-3xl font-serif text-[#9E3A66] mb-4 capitalize">
                     {title}
                 </h2>
 
@@ -29,7 +29,7 @@ const MenuSection = ({ title, products }: Props) => {
                         className="flex items-center w-full"
                     >
 
-                        <span className="text-[#5F4B53] text-lg font-serif whitespace-nowrap">
+                        <span className="text-[#5F4B53] text-base md:text-lg font-serif leading-snug max-w-[70%]">
                             {product.name}
                         </span>
 

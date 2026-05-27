@@ -32,20 +32,20 @@ const InstagramSection = () => {
         <section className="relative pt-8 pb-14  overflow-hidden">
 
             {/* FONDO */}
-            <div className="absolute inset-0 bg-[var(--color-background-white)]" />
+            <div className="absolute inset-0 bg-[var(--color-background-pink)]" />
 
             <div className="relative max-w-7xl mx-auto px-4">
 
                 {/* HEADER */}
                 <div className="text-center mb-8">
 
-                    <h2 className="mt-2 text-3xl md:text-4xl font-serif text-[#9E3A66]">
+                    <h2 className="mt-2 text-3xl md:text-4xl font-serif text-white">
                         Seguime en Instagram
                     </h2>
 
-                    <div className="w-20 h-[1px] bg-[#C9A227]/60 mx-auto my-4" />
+                    <div className="w-20 h-[1px] bg-white/60 mx-auto my-4" />
 
-                    <p className="text-[#6B5B63] max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+                    <p className="text-[var(--color-background-white)] max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
                         Si quieres ver más de mis creaciones, visita mi cuenta de Instagram.
                         Allí comparto fotos de mis productos, promociones exclusivas y un vistazo
                         detrás de escena de mi proceso de elaboración.

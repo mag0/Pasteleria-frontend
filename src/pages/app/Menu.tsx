@@ -44,11 +44,11 @@ export const Menu = () => {
     }, {} as Record<string, Product[]>);
 
     return (
-        <main className="min-h-screen bg-[#FFF8F5] py-20 px-4">
+        <main className="min-h-screen bg-[var(--color-background-white)] py-20 px-4">
 
             <section className="max-w-5xl mx-auto text-center mb-20">
 
-                <h2 className="text-6xl font-serif text-[#9E3A66] mb-6">
+                <h2 className="text-4xl md:text-5xl font-serif text-[#9E3A66] mb-6">
                     Precios
                 </h2>
 
@@ -66,7 +66,7 @@ export const Menu = () => {
 
             ) : (
 
-                <div className="max-w-5xl mx-auto flex flex-col gap-16">
+                <div className="max-w-5xl mx-auto flex flex-col gap-10">
 
                     {categories
                         .filter(category =>

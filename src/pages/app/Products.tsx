@@ -67,15 +67,14 @@ const Products = () => {
     <div className="relative min-h-screen" ref={sectionRef}>
 
       {/* FONDO */}
-      <div className="absolute inset-0 bg-[url('/images/bg.jpg')] bg-cover bg-center"></div>
-      <div className="absolute inset-0 bg-[#9E3A66]/70 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-[var(--color-background-pink)] bg-cover bg-center"></div>
 
       <div className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* HEADER */}
           <div className="text-center mb-16">
-            <h2 className="text-6xl font-serif text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
               Mis Preparaciones
             </h2>
           </div>

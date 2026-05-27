@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative pt-6 pb-16 bg-[var(--color-background-pink)]">
+    <section className="relative pt-6 pb-16 bg-[var(--color-background-white)]">
 
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center px-4 w-full">
 
@@ -11,11 +11,11 @@ const Hero = () => {
         </div>
 
         <div className="text-center">
-          <h1 className="text-5xl font-serif text-white mb-4 drop-shadow-lg">
+          <h1 className="text-5xl font-serif text-[#9E3A66] mb-4 drop-shadow-lg">
             Pastelería Belu
           </h1>
 
-          <p className="text-white/60 text-xl mb-6 font-serif">
+          <p className="text-[#9E3A66]/60 text-xl mb-6 font-serif">
             Deliciosas creaciones hechas con amor y dedicación. Cada producto es una obra de arte dulce, perfecta para tus momentos especiales.
           </p>
 

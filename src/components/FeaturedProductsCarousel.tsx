@@ -50,20 +50,20 @@ const FeaturedProductsCarousel = () => {
     };
 
     return (
-        <section className="relative py-12 bg-[var(--color-background-white)] overflow-hidden ">
+        <section className="relative py-12 bg-[var(--color-background-pink)] overflow-hidden ">
 
             <div className="relative max-w-7xl mx-auto px-4 mb-12">
 
                 {/* HEADER */}
                 <div className="text-center mb-8">
 
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#9E3A66]">
+                    <h2 className="text-3xl md:text-4xl font-serif text-white">
                         Productos destacados
                     </h2>
 
                     <div className="w-20 h-[1px] bg-[#C9A227]/60 mx-auto my-4" />
 
-                    <p className="text-[#6B5B63] text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                         Algunas de mis creaciones más elegidas y favoritas de mis clientes.
                     </p>
 
@@ -96,7 +96,7 @@ const FeaturedProductsCarousel = () => {
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-500" />
 
                                 {/* texto */}
-                                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-black/80 to-transparent">
+                                <div className="absolute bottom-0 left-0 right-0 px-6 pt-6 pb-10 md:px-10 md:pt-10 md:pb-14 bg-gradient-to-t from-black/80 to-transparent">
 
                                     <h3 className="text-white text-2xl md:text-4xl font-serif">
                                         {product.name}
@@ -112,25 +112,26 @@ const FeaturedProductsCarousel = () => {
                         ))}
 
                     </div>
+                    {/* INDICADORES */}
+                    <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+
+                        {featured.map((_, index) => (
+
+                            <button
+                                key={index}
+                                onClick={() => goToSlide(index)}
+                                className={`h-[3px] rounded-full transition-all duration-500 ${current === index
+                                    ? "w-8 bg-[#9E3A66]"
+                                    : "w-4 bg-white/20 hover:bg-[#9E3A66]"
+                                    }`}
+                            />
+
+                        ))}
+
+                    </div>
                 </div>
 
-                {/* INDICADORES */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
 
-                    {featured.map((_, index) => (
-
-                        <button
-                            key={index}
-                            onClick={() => goToSlide(index)}
-                            className={`h-[3px] rounded-full transition-all duration-500 ${current === index
-                                ? "w-8 bg-[#9E3A66]"
-                                : "w-4 bg-white/40 hover:bg-[#9E3A66]"
-                                }`}
-                        />
-
-                    ))}
-
-                </div>
 
             </div>
         </section>

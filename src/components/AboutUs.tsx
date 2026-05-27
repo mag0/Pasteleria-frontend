@@ -1,7 +1,7 @@
 
 const AboutUs = () => {
   return (
-    <section className="py-20 bg-[var(--color-background-pink)]">
+    <section className="py-20 bg-[var(--color-background-white)]">
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
         <div className="flex justify-center">
@@ -13,11 +13,11 @@ const AboutUs = () => {
         </div>
 
         <div>
-          <h2 className="text-4xl font-serif text-white mb-6 text-center md:text-left">
+          <h2 className="text-4xl font-serif text-[#9E3A66] mb-6 text-center md:text-left">
             ¿Quién soy?
           </h2>
 
-          <div className="space-y-5 text-white/60 leading-relaxed text-lg">
+          <div className="space-y-5 text-[#9E3A66]/60 leading-relaxed text-lg">
             <p>
               Hace un par de años descubrí el maravilloso mundo de la pastelería,
               y desde entonces no dejé de perfeccionarme en cada receta,
