@@ -4,6 +4,8 @@ import type { Product } from "../interfaces/Product"
 
 export async function getProducts(): Promise<Product[]> {
     try {
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+
         const { data } = await api<Product[]>("/products");
         return data;
     } catch (error) {

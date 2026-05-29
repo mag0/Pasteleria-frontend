@@ -9,6 +9,7 @@ const FeaturedProductsCarousel = () => {
 
     const {
         data: productsData = [],
+        isLoading,
         isError,
         error,
     } = useQuery<Product[]>({
@@ -49,8 +50,49 @@ const FeaturedProductsCarousel = () => {
         setCurrent(index);
     };
 
+    // LOADING
+    if (isLoading) {
+        return (
+            <section className="relative py-12 bg-[var(--color-background-pink)] overflow-hidden">
+
+                <div className="relative max-w-7xl mx-auto px-4 mb-12">
+
+                    {/* HEADER */}
+                    <div className="text-center mb-8">
+
+                        <h2 className="text-3xl md:text-4xl font-serif text-white">
+                            Productos destacados
+                        </h2>
+
+                        <div className="w-20 h-[1px] bg-[#C9A227]/60 mx-auto my-4" />
+
+                        <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                            Cargando productos destacados...
+                        </p>
+
+                    </div>
+
+                    {/* SKELETON */}
+                    <div className="w-full h-[280px] md:h-[500px] rounded-3xl overflow-hidden bg-white/10 animate-pulse flex items-end p-6 md:p-10">
+
+                        <div className="space-y-3 w-full">
+
+                            <div className="h-8 w-48 bg-white/20 rounded-md" />
+
+                            <div className="h-3 w-32 bg-white/10 rounded-md" />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+        );
+    }
+
     return (
-        <section className="relative py-12 bg-[var(--color-background-pink)] overflow-hidden ">
+        <section className="relative py-12 bg-[var(--color-background-pink)] overflow-hidden">
 
             <div className="relative max-w-7xl mx-auto px-4 mb-12">
 
@@ -109,26 +151,25 @@ const FeaturedProductsCarousel = () => {
                         ))}
 
                     </div>
-                    {/* INDICADORES */}
-                    <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+
+                    <div className="absolute bottom-2 md:bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1 md:gap-1.5 z-20">
 
                         {featured.map((_, index) => (
 
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`h-[3px] rounded-full transition-all duration-500 ${current === index
-                                    ? "w-8 bg-[#9E3A66]"
-                                    : "w-4 bg-white/20 hover:bg-[#9E3A66]"
+                                className={`block p-0 rounded-full transition-all duration-500 ${current === index
+                                    ? "w-7 md:w-9 h-[1px] bg-white"
+                                    : "w-4 md:w-6 h-[1px] bg-white/30 hover:bg-white/50"
                                     }`}
                             />
 
                         ))}
 
                     </div>
+
                 </div>
-
-
 
             </div>
         </section>

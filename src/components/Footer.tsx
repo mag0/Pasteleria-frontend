@@ -37,7 +37,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <div className="mt-1">
                   <svg
-                    className="h-4 w-4 text-[#C9A227]"
+                    className="h-4 w-4 text-white"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -51,7 +51,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <div className="mt-1">
                   <svg
-                    className="h-4 w-4 text-[#C9A227]"
+                    className="h-4 w-4 text-white"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -66,7 +66,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <div className="mt-1">
                   <svg
-                    className="h-4 w-4 text-[#C9A227]"
+                    className="h-4 w-4 text-white"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
