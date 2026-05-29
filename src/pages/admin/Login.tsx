@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { loginAdmin } from "../../helper/auth";
 
 const Login = () => {
 
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
 
     const handleLogin = () => {
 
