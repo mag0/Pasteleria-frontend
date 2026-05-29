@@ -12,7 +12,7 @@ const Login = () => {
         const success = loginAdmin(password);
 
         if (success) {
-            navigate("/admin/productTable");
+            window.location.href = "/admin/productTable";
         } else {
             alert("Contraseña incorrecta");
         }
@@ -33,6 +33,12 @@ const Login = () => {
                     Admin
                 </h1>
 
+                <input
+                    type="text"
+                    name="username"
+                    autoComplete="username"
+                    className="hidden"
+                />
                 <input
                     type="password"
                     placeholder="Contraseña"
